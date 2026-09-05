@@ -15,7 +15,8 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - A monetization section: an affiliate link
 - A section for their Airbnb property in Bocas del Toro
 - A "contact us" box — clicking it opens email (NOT WhatsApp — explicitly excluded, no WhatsApp yet)
-- Tech approach: static site, multiple routes — hosting/refresh mechanism still open (see flags)
+- Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
+- **No follower/subscriber counts anywhere** (user: "skip the counts").
 
 ## Design language (extracted from user's 4 reference screenshots)
 References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyrose (beige). Patterns worth copying:
@@ -35,6 +36,15 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the chooser landing page is an asset no Linktree gets: a storytelling moment (split screen, jungle one side / fjord the other, "pick your guide").
 
 ## Q&A log
+### Q5 — Latest-video refresh mechanism — RESOLVED
+- Asked: How should the latest YouTube video stay current — (a) free RSS feed + daily rebuild, (b) serverless function for instant, (c) manual? And do you want subscriber counts (which would require a YouTube API key)?
+- Captured:
+  - **User: "Skip the counts."** No subscriber/follower counts anywhere on the site.
+  - Skipping counts removes the only reason to need a YouTube API key → **working decision: option (a)**, YouTube's free public RSS feed (`youtube.com/feeds/videos.xml?channel_id=...`), refreshed by a scheduled daily rebuild. No API key, no quota, no cost, no ongoing manual work. Video appears automatically within ~24h of publishing.
+  - Consequence: hosting can stay a plain static site (no serverless runtime required).
+  - Consequence for design: the reference examples' social-proof subtitles (e.g. "466.7K followers") are OUT. Link button subtitles, if used, must be hand-written text instead.
+- Flags: none
+
 ### Q4 — Reference examples analyzed
 - Asked: user sent 4 Linktree screenshots and said "analyze these examples"
 - Captured: full teardown recorded above in "Design language". Key takeaway — the reference that most matches Felo's stated vision is Ziwe's (banner graphic at top + centered hero photo + icon row + rich video card + grouped sections).
@@ -84,8 +94,7 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 ## Open flags (pending input)
 - Full list of social platforms + handles/URLs, for Felo AND Sanna -> user
 - Availability check + registration of `sannayfelo.com` -> user (or Claude can check)
-- How the "latest YouTube video" stays current (auto-fetch vs manual) -> user, ASKED NEXT
-- YouTube channel ID/URL for Felo (and Sanna) -> user
+- YouTube channel ID/URL — is it one joint channel or one each? -> user
 - Affiliate program(s) / what the money link actually points to -> user
 - Airbnb listing URL for the Bocas del Toro house -> user
 - Contact email address to use in the mailto link -> user
