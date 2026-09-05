@@ -14,6 +14,17 @@ Date: 2026-09-05 · Goal: Design a Linktree-style personal bio-link website for 
 - Likely tech approach: static site (HTML/CSS/JS), multiple routes/pages, hosted free (GitHub Pages/Vercel) — pending explicit confirmation
 
 ## Q&A log
+### Q2 — Domain name
+- Asked: Do you own a domain, or want suggestions? User asked for shared travel-theme options.
+- Captured:
+  - Couple's story angle for branding: he's Caribbean ("jungle man"), she's from the Faroe Islands ("Viking") — domain/brand name should play on that jungle x Viking / warm x cold contrast
+  - Claude proposed name directions: nature-pairing (e.g. WildAndFjord.com, FjordAndJungle.com), playful Viking/jungle wordplay (TheJungleViking.com, JungleVikings.com), and handle-based (FeloAndSanna.com)
+  - Recommended pick offered: WildAndFjord.com
+  - User has not yet picked a final name or confirmed availability
+- Flags:
+  - Final domain name choice -> user (decide direction: poetic nature-pairing vs. playful wordplay vs. handle-based)
+  - Domain availability check -> not yet done, offered to check once direction is picked
+
 ### Q1 — Site structure (one domain, two profiles) & visual style
 - Asked: Tech/hosting approach (recommended: static site on GitHub Pages/Vercel)
 - Captured:
