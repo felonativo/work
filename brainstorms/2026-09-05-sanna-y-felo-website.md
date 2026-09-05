@@ -7,6 +7,9 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - **Domain: `sannayfelo.com`** — DECIDED. Spanish "y" (and) ties to Felo's Caribbean side and reads naturally bilingually.
 - **One website, one shared domain**, not two separate sites. A landing/chooser page lets visitors pick Felo or Sanna, routing to that person's own sub-page (`/felo`, `/sanna`). Build Felo's profile first; Sanna's follows the same template.
 - **Brand story to lean on:** Felo = Caribbean, "jungle man"; Sanna = Faroe Islands, "Viking". The jungle ↔ fjord / warm ↔ cold contrast is the visual and narrative spine of the whole site.
+- **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
+- **YouTube is one joint channel** → the same single latest video appears on both pages. One video only, not a carousel.
+- **The Airbnb box is deliberately not like the other link boxes** — styled as the tiny house itself, with a little roof on top, and something "dynamic". Detailed design TBD.
 - Purpose: a single bio-link page to drop in Instagram/YouTube/social profiles
 - Visual style: green palette, adventurous/travel vibe; fade-in hero banner; circular profile photo centered at top of each profile page
 - Top of each profile page: row of social media icons linking out to all their profiles
@@ -36,6 +39,17 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the chooser landing page is an asset no Linktree gets: a storytelling moment (split screen, jungle one side / fjord the other, "pick your guide").
 
 ## Q&A log
+### Q6 — Shared vs personal content — RESOLVED
+- Asked: Almost everything you described is "our/we" (video, guide, Airbnb, contact) but the architecture is two personal pages. Which is it? And is the YouTube channel joint or one each?
+- Captured:
+  - **CONFIRMED: "Personal top and shared bottom, as how it should be."** Each profile page = personal header (own photo, name, tagline, own social handles) + shared body (latest video, guides, Airbnb, contact).
+  - Shared content lives in ONE data file, rendered on both pages — edit a link once, it updates everywhere. User: "We edit the links."
+  - **YouTube channel is JOINT.** One channel, so the same latest video appears on both pages. Only ever ONE video shown on the page (not a carousel of several — differs from the Ziwe reference).
+  - **Airbnb box should be visually special** — "a little bit dynamic," deliberately different from the uniform link boxes. Concept: styled like the tiny house itself, with a little roof on top of the box. Specific design to be worked out later.
+- Flags:
+  - Airbnb box detailed design (roof treatment, animation/"dynamic" behavior) -> revisit in a design pass
+  - Consequence surfaced, NOT yet resolved: if the channel is joint AND the bottom is shared, `/felo` and `/sanna` differ only by photo, name, tagline, and personal socials — so is a chooser landing page worth the extra tap? -> ASKED NEXT
+
 ### Q5 — Latest-video refresh mechanism — RESOLVED
 - Asked: How should the latest YouTube video stay current — (a) free RSS feed + daily rebuild, (b) serverless function for instant, (c) manual? And do you want subscriber counts (which would require a YouTube API key)?
 - Captured:
