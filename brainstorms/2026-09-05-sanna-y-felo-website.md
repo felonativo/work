@@ -220,6 +220,19 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q21 — Share preview + analytics — both wanted
+- Asked: completeness backstop. Claude named two untouched areas: the link's share preview (Open Graph) and analytics.
+- Captured:
+  - **User: "si me interesan ambas."** Both are in scope.
+  - **Share preview (Open Graph):** needs `og:image` (1200×630), `og:title`, `og:description` per page, with absolute URLs.
+    - **Key constraint surfaced: the share preview CANNOT be bilingual.** It is baked into the HTML and read by WhatsApp/Instagram before any JS runs, so the `ES | EN` toggle has no effect on it. One language must be chosen — recommend Spanish, matching the site's fallback.
+    - Recommend a *designed card* per page (photo + name + tagline on the brand green) rather than a raw photo — readable at thumbnail size and looks deliberate.
+  - **Analytics:** the useful metric is NOT pageviews — it is **outbound click-through per box**, since the real question is "does the house convert better than the video?" Plain pageviews cannot answer that. Requires click events on each link.
+    - **GDPR matters here:** Sanna's audience is European/Nordic. Google Analytics uses cookies and would require a consent banner on a page whose whole job is being scanned in three seconds. Cookieless analytics (Cloudflare Web Analytics, Vercel Analytics) avoid the banner entirely and are free.
+- Flags:
+  - Pick the analytics tool -> user
+  - Confirm Spanish-only share preview and designed cards -> user
+
 ### Q20 — Felo's tagline pick creates a collision with the root
 - Asked: which no-off-grid variant for `/felo`?
 - Captured:
@@ -443,6 +456,10 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Needs a quick answer**
 3. **Email routing.** Assumed: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, root → both, or one primary. Confirm.
 4. **Sanna's approval** of her own tagline and photo.
+
+**Share preview + analytics (Q21 — both agreed in scope)**
+- Designed OG card per page, 1200×630, Spanish only (the preview cannot switch languages).
+- Cookieless analytics tracking outbound clicks per box, not just pageviews.
 
 **Design pass (deferred by agreement)**
 5. The stay box: how the "little roof" reads, and what "dynamic" means in practice.
