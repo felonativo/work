@@ -4,7 +4,7 @@ Date: 2026-09-05 · Goal: Design a Linktree-style link-in-bio website at **sanna
 Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 
 ## Summary / key decisions
-- **Domain: `sannayfelo.com`** — DECIDED. Spanish "y" (and) ties to Felo's Caribbean side and reads naturally bilingually.
+- **Domain: `sannayfelo.com`** — DECIDED. Spanish "y" (and) nods to Felo's Venezuelan side and reads naturally in both languages. Not yet registered — see open items.
 - **Three pages, one site — NO chooser gate.**
   - `/felo` — Felo's page. Goes in Felo's own Instagram/social bios.
   - `/sanna` — Sanna's page. Goes in Sanna's own bios.
@@ -22,7 +22,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - Top of each profile page: row of social media icons linking out to all their profiles
 - Featured/hero section: latest YouTube video, shown with its thumbnail
 - **Faroe Islands guide and affiliate link do not exist yet** — both sections are built into the template but ship switched OFF in the data file. No "coming soon" boxes.
-- **The off-grid stay is the flagship asset**: an off-grid Airbnb stay in Bocas del Toro, Panama, tied to a coral restoration project. Their own property, no platform cut. Biggest/most distinctive box on the page. Link (provisional): https://caribbeancoralrestorationlanding.vercel.app/
+- **The stay is the flagship asset**: an off-grid Airbnb in Bocas del Toro, Panama, tied to a coral restoration project. (Per the Q19 voice rule, "off-grid" appears in SITE copy only here, on the stay box — not across taglines and headers.) Their own property, no platform cut. Biggest/most distinctive box on the page. Link (provisional): https://caribbeancoralrestorationlanding.vercel.app/
 - A "contact us" box — clicking it opens email (NOT WhatsApp — explicitly excluded, no WhatsApp yet)
 - Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
 - **No follower/subscriber counts anywhere** (user: "skip the counts").
@@ -68,8 +68,11 @@ What this changes:
 - es: **Viajes, cultura y vida entre dos mundos**
 - en: **Travel, culture and life between two worlds**
 
-**`/felo` — user picked *Explorando el mundo entre dos culturas*, pending resolution of a collision with the root tagline (Q20).**
-Differentiated alternative on the table: *Explorando el mundo desde el trópico* / *Exploring the world from the tropics*.
+**`/felo` — ✅ FINAL (Q20)**
+- es: **Explorando el mundo entre dos culturas**
+- en: **Exploring the world between two cultures**
+
+*(Claude flagged that this is the root tagline reordered and offered "Explorando el mundo desde el trópico" as a differentiated alternative. User considered it and said "déjalo así". Decision made — do not re-raise.)*
 
 **VOICE RULE (Q19): do not over-use "off-grid."** It is the product, not the identity — say it once, on the stay box.
 
@@ -77,7 +80,7 @@ Differentiated alternative on the table: *Explorando el mundo desde el trópico*
 - root: es *Un venezolano y una vikinga — nuestra historia entre dos culturas* / en *A Venezuelan and a Viking — our story between two cultures*
 - `/sanna`: es *Feroesa. Casada con un venezolano.* / en *Faroese. Married to a Venezuelan.* — dropped: it defines the larger account by her husband, which her own bio pointedly does not do.
 
-## Tagline options (Q15 — pick one per page)
+## Tagline options — HISTORICAL (all three taglines are now final above; kept only as a record of what was considered)
 
 Short is the constraint. All built from vocabulary they already use (venezolano, vikinga, off-grid, dos culturas).
 
@@ -431,12 +434,22 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
   - Build Felo's profile first; Sanna's is the same concept, done afterward
 - Flags: none
 
-## Open flags (pending input)
-- Full list of social platforms + handles/URLs, for Felo AND Sanna -> user
-- Availability check + registration of `sannayfelo.com` -> user (or Claude can check)
-- YouTube channel ID/URL — is it one joint channel or one each? -> user
-- Affiliate program(s) / what the money link actually points to -> user
-- Airbnb listing URL for the Bocas del Toro house -> user
-- Contact email address to use in the mailto link -> user
-- Profile photos + banner images (jungle / fjord shots) -> user
-- Faroe Islands guide: is it a future page on this site, or an off-site link? -> user
+## Open items — what's still needed
+
+**Blocking the build**
+1. **Images.** Profile photo for Felo, for Sanna, and for the root (both of them). Plus banner images — ideally one jungle/tropics shot and one Faroe/fjord shot for the split header. Nothing can be built without these.
+2. **Domain `sannayfelo.com`** — check availability and register it.
+
+**Needs a quick answer**
+3. **Email routing.** Assumed: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, root → both, or one primary. Confirm.
+4. **Sanna's approval** of her own tagline and photo.
+
+**Design pass (deferred by agreement)**
+5. The stay box: how the "little roof" reads, and what "dynamic" means in practice.
+6. Exact greens for the palette, and whether the background gradient runs jungle → fjord.
+
+**Later / not blocking**
+7. Faroe Islands guide — build it, then flip its section on.
+8. Affiliate programme — pick one, then flip that section on.
+9. Decide whether the stay box keeps pointing at the Vercel page or moves to a real booking listing / `sannayfelo.com/casa`.
+10. Resolve `@SannaFelo` to its `UC…` channel ID for the RSS feed (Claude, at build time).
