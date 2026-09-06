@@ -68,7 +68,8 @@ What this changes:
 - es: **Viajes, cultura y vida entre dos mundos**
 - en: **Travel, culture and life between two worlds**
 
-**`/felo` — pending.** Wants the "Explorando el trópico y…" shape, but WITHOUT leaning on off-grid. Variants below.
+**`/felo` — user picked *Explorando el mundo entre dos culturas*, pending resolution of a collision with the root tagline (Q20).**
+Differentiated alternative on the table: *Explorando el mundo desde el trópico* / *Exploring the world from the tropics*.
 
 **VOICE RULE (Q19): do not over-use "off-grid."** It is the product, not the identity — say it once, on the stay box.
 
@@ -216,6 +217,20 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q20 — Felo's tagline pick creates a collision with the root
+- Asked: which no-off-grid variant for `/felo`?
+- Captured:
+  - **User picked "Explorando el mundo entre dos culturas"** — which was Sanna's option 2, not one of the Felo variants.
+  - **COLLISION:** that is the root tagline reordered.
+    - root: *Dos culturas explorando el mundo*
+    - felo: *Explorando el mundo entre dos culturas*
+    - sanna: *Viajes, cultura y vida entre dos mundos*
+    All three now say "two cultures / two worlds" — the blurring risk raised in Q18, now realised. The pages already share a background, a video and a whole bottom half; identical taglines remove the last differentiator.
+  - **Honest counter-weight Claude owes the user:** almost nobody sees two of these pages — one link, one page. The repetition is only visible to someone comparing them, i.e. a brand, sponsor or press contact evaluating the couple. Which is precisely the audience the commercial taglines exist to serve. So it costs little with followers and most with buyers.
+  - Alternatives offered: keep the shape and his territory but drop the duplication — e.g. *Explorando el mundo desde el trópico*.
+- Flags:
+  - `/felo` final tagline — user to confirm duplicate-of-root or take a differentiated variant
+
 ### Q19 — De-emphasise "off-grid"; Sanna's tagline DECIDED
 - Asked: which commercial taglines for the personal pages?
 - Captured:
