@@ -161,6 +161,69 @@ The tagline's job here is to sell: a brand, sponsor or guest should know the nic
 
 Claude's pick: **2a** — closest to #2's shape, keeps nature (his territory), drops the off-grid repetition, and pairs cleanly with Sanna's "cultura" angle so the two pages stay distinct.
 
+## DESIGN SPEC (Q25) — for review before build
+
+### Palette — derived from their actual photos
+| token | value | where |
+|---|---|---|
+| `--bg` | `#0E2A1F` deep jungle green | page background |
+| `--surface` | `#16382A` | link boxes, cards |
+| `--surface-hi` | `#1D4634` | hover/pressed |
+| `--accent` | `#B5252B` Faroese barn red | play badge, the roof, active toggle, focus rings |
+| `--sea` | `#2FBAA8` Caribbean turquoise | secondary accents, link underlines |
+| `--sun` | `#E8A94B` sunset gold | sparing highlight |
+| `--text` | `#F4EFE6` warm cream | body text |
+| `--muted` | `#A3BCAE` | subtitles, section headers |
+
+Red comes straight off the wall in their portraits; turquoise and gold come off the banner. Nothing here is invented — the interface is sampled from their own images.
+
+### Type
+- Display / names: **Fraunces** (warm serif with character; editorial, not corporate)
+- Everything else: **DM Sans**
+- Both are free on Google Fonts, both carry full Spanish accents. Easily swapped if he dislikes them.
+- Sizes (mobile): name 30px · tagline 15px · box label 16px · section header 12px uppercase letterspaced · meta 12px
+
+### Layout — shared by all three pages
+- Single column, `max-width: 520px`, centred. Mobile-first; on desktop it just sits in the middle.
+- Vertical rhythm: 12px between boxes, 28px between sections.
+- Everything tappable is at least 48px tall.
+
+### Header — personal pages (`/felo`, `/sanna`)
+1. `ES | EN` toggle — absolute, top-right, small pill on a translucent dark background so it stays readable over any photo. Never pushes layout down.
+2. Banner — full-bleed, 3:2 crop, fades in over ~600ms on load.
+3. Profile photo — 120px circle, centred, overlapping the banner's lower edge by half, 4px cream ring.
+4. Name — Fraunces 30px.
+5. Tagline — DM Sans 15px, muted.
+6. Social row — Instagram · TikTok · YouTube. Flat, monochrome cream, 26px, 24px gaps. No boxes.
+
+### Header — root page (the split)
+- Banner: the Caribbean↔Faroe landscape, full-bleed. The split is already *in* the photograph, so the layout doesn't need to fake it.
+- **Two circular portraits side by side**, overlapping the banner's lower edge, slightly overlapping each other — Sanna left, Felo right (matching the domain order).
+- Name: **Sanna y Felo**. Tagline: *Dos culturas explorando el mundo*.
+- **Solves a real problem:** on the root page, a single social row is ambiguous — whose Instagram? So each portrait gets its own tiny icon row directly beneath it. Unambiguous, and it reinforces the split.
+
+### The boxes (shared bottom, all pages)
+- Radius 18px, 18px padding, `--surface`, 1px subtle lighter border.
+- Section header sits above each group: 12px, uppercase, letterspaced, `--muted`.
+- **Video card** — 16:9 thumbnail, rounded; play badge centred (red circle, cream triangle); title below at 15px; `YouTube · Sanna y Felo` at 12px muted. The whole card is one link out to YouTube.
+- **Contact** — full-width, mail icon left, label centred, opens `mailto:`.
+
+### The stay box — the special one
+The card is drawn as a **house**, not a rectangle:
+- A **pitched roof** sits on top, slightly wider than the card, with a small overhang — in Faroese red.
+- **The roof is turf.** Faroese houses have grass roofs — you can see them in the banner photo. A green turf roof on a red house is unmistakably Faroese, sitting on top of a card about a Panamanian house. That is the "dos culturas" joke told in a single component, and it costs nothing to draw.
+- Card body: photo of the stay, name, one line of copy, and the only place on the site where the words "off-grid" appear (per the Q19 voice rule).
+- **The "dynamic" part:** on hover/tap a warm light comes on in a window — a soft gold glow. Cheap, charming, and it makes the box feel like a place rather than a link.
+
+### Motion
+- Banner fades in 600ms ease-out.
+- Boxes fade and rise 12px, staggered 60ms apart.
+- Press: box lifts 2px, border brightens.
+- **All of it disabled under `prefers-reduced-motion`.**
+
+### Share cards (Open Graph)
+1200×630, Spanish only, one per page: brand green ground, portrait on the left, name and tagline on the right, 🇻🇪🇫🇴, `sannayfelo.com` small at the bottom.
+
 ## Page spec (as decided so far)
 
 Every page is mobile-first — nearly all traffic is a thumb tapping an Instagram bio.
@@ -223,6 +286,20 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q25 — Photos delivered; emails + Sanna confirmed; design spec requested
+- Captured:
+  - ✅ **Emails confirmed** as assumed: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, root → both.
+  - ✅ **Sanna approved** her tagline and photo.
+  - **Three images delivered:**
+    1. Felo portrait — Faroese national dress (black jacket, silver buttons, green embroidered waistcoat), long curly hair, against a deep red Faroese house wall.
+    2. Sanna portrait — Faroese national dress (red/black patterned bodice, silver clasps, green fringed floral shawl), same red wall, same shoot.
+    3. Landscape banner — Caribbean beach and palms on the left, Faroese sea cliffs and waterfall on the right, sunset between them. No people; pure landscape.
+  - ⚠️ The image files were not saved to disk in this session — the actual files still need to be supplied before the build.
+  - **Design consequence (important):** both portraits are shot against DEEP RED with GREEN costume detail and silver. That is a gift, not a problem — it means the palette should be jungle green + **Faroese red as the accent**, so the photos and the interface belong to each other instead of fighting. Red was not previously in the plan.
+  - The landscape supplies the rest of the palette: Caribbean turquoise, sunset gold, cliff green, dark rock.
+  - Both portraits being in Faroese dress — a Venezuelan man in Faroese national costume — is the "dos culturas" story in a single image. Strongest possible asset for the brand.
+- Flags: none — user asked for the full design spec before building.
+
 ### Q24 — Video behaviour: thumbnail links out, NO embed, NO autoplay — RESOLVED
 - Asked (by the user): does the video autoplay on entry or need a click? He preferred just a thumbnail, but wondered whether autoplay could farm automatic views since views now count from the start.
 - Captured:
@@ -498,9 +575,11 @@ User sent a photo of the two of them in Faroese national dress, walking, with a 
 ## Open items — what's still needed
 
 **Blocking the build**
-1. **Images.** Root banner: the Caribbean/Faroe split photo he sent — needs to be supplied as an actual file. Still missing: profile photos for Felo and for Sanna.
+1. **Image files.** All three images have been shown but not supplied as files — banner, Felo portrait, Sanna portrait. Also still needed: a photo of the stay itself, for the house box.
 2. **Domain `sannayfelo.com`** — register it at Hostinger (check availability first).
-3. **Hostinger plan details** — confirm PHP is available and whether cron is included.
+
+**Resolved**
+- ✅ Emails confirmed. ✅ Sanna approved. ✅ PHP available on Hostinger.
 
 **Needs a quick answer**
 3. **Email routing.** Assumed: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, root → both, or one primary. Confirm.
