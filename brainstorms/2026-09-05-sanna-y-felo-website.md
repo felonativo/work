@@ -13,7 +13,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - **Site language: BILINGUAL — Spanish + English.** Spanish is the primary/main audience today, English is the second language (Sanna's Nordic following, international Airbnb guests). Every UI string lives in one strings file with an `es` and `en` value.
   - Language chosen by a small `ES | EN` toggle top-right: auto-detect on first visit (default Spanish), user can override, choice remembered.
   - IMPORTANT distinction: the *chrome* is bilingual (section headers, buttons, taglines, contact copy). The *content* is whatever language it was published in — the YouTube video title comes from the channel, guide names are what they're called. So this is "bilingual interface + native-language content", not a fully translated site.
-- **Brand story to lean on:** Felo = Caribbean, "jungle man"; Sanna = Faroe Islands, "Viking". The jungle ↔ fjord / warm ↔ cold contrast is the visual and narrative spine of the whole site.
+- **Brand story to lean on:** Felo = **Venezuelan** ("Nativo Venezolano", 🇻🇪; "jungle man" is his casual framing, good for the visuals); Sanna = Faroe Islands ("vikinga", 🇫🇴). Their own public line is *"nuestra historia entre dos culturas" / "our story between two cultures"* — that IS the brand. Jungle ↔ fjord / warm ↔ cold is its visual spine.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
 - **YouTube is one joint channel** → the same single latest video appears on both pages. One video only, not a carousel.
 - **The Airbnb box is deliberately not like the other link boxes** — styled as the tiny house itself, with a little roof on top, and something "dynamic". Detailed design TBD.
@@ -26,6 +26,53 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - A "contact us" box — clicking it opens email (NOT WhatsApp — explicitly excluded, no WhatsApp yet)
 - Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
 - **No follower/subscriber counts anywhere** (user: "skip the counts").
+
+## Their real Instagram bios (screenshot, Q14) — source of truth for voice
+
+**@feloferoe** — name "Felo" · category "Blog personal" · 27 posts · **56.4K followers**
+```
+🇻🇪 Nativo Venezolano
+🇫🇴 Casado con una vikinga
+Te cuento nuestra historia ↓
+youtube.com/@sannafelo
+```
+
+**@sannalavida** — name "Sanna" · 28 posts · **73.5K followers**
+```
+🇫🇴 Faroese
+🇻🇪 Husband @feloferoe
+↓ Our story between two cultures
+📧 sannalavida@gmail.com
+youtube.com/@sannafelo
+```
+
+What this changes:
+1. **Felo is VENEZUELAN, not generically "Caribbean."** His own bio: "Nativo Venezolano." Earlier notes said "Caribeño" — corrected everywhere. ("Jungle man" was his casual framing in conversation; it's useful for the *visual* language, but "venezolano" is the public identity.)
+2. **"Vikinga" is HIS OWN WORD** — "Casado con una vikinga." Not Claude's invention. Safe and authentic to use on the site.
+3. **Their two bios are in DIFFERENT LANGUAGES.** Felo's is Spanish, Sanna's is English. Strong evidence their audiences genuinely differ — and direct support for the bilingual decision. Raises the question of per-page *default* language.
+4. **Sanna is the bigger account** (73.5K vs 56.4K). `/sanna` may well get more traffic than `/felo`, even though the user asked to build Felo's first.
+5. **Their real positioning line already exists**, in both languages: *"Te cuento nuestra historia"* / *"Our story between two cultures."* Better than anything invented — use it.
+6. Both bios already point at the same channel, `@sannafelo` — confirms the joint channel.
+7. Sanna's email is already public in her bio, so using it on the site exposes nothing new.
+8. Both use flag emoji as culture markers: 🇻🇪 + 🇫🇴. A ready-made visual device for the split header.
+
+(Follower counts recorded as background only — they are NOT displayed on the site, per Q5.)
+
+## Taglines (rebuilt from their own bios)
+
+**Root / couple page**
+- es: **Un venezolano y una vikinga — nuestra historia entre dos culturas**
+- en: **A Venezuelan and a Viking — our story between two cultures**
+
+**`/felo`**
+- es: **Nativo venezolano. Casado con una vikinga.**
+- en: **Venezuelan native. Married to a Viking.**
+
+**`/sanna`**
+- es: **Feroesa. Casada con un venezolano.**
+- en: **Faroese. Married to a Venezuelan.**
+
+Every line above is assembled from words they already use publicly. Pending user + Sanna's confirmation.
 
 ## Page spec (as decided so far)
 
@@ -88,6 +135,18 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q14 — Taglines — user answered with a screenshot of both real IG bios
+- Asked: do the drafted taglines work? (Claude drafted "Un caribeño y una vikinga…" etc.)
+- Captured:
+  - User replied with a screenshot of both Instagram profiles rather than prose — see the "Their real Instagram bios" section above, now the source of truth for voice.
+  - **Claude was wrong to write "caribeño"** — his own bio says "Nativo Venezolano". Corrected throughout.
+  - "Vikinga" was validated — it is his own word, from his own bio.
+  - Taglines rewritten entirely from their own public wording; recorded above.
+  - New fact: their bios are in different languages (his Spanish, hers English), and Sanna has the larger following.
+- Flags:
+  - Sanna to approve her own tagline -> Sanna
+  - Given his bio is Spanish and hers is English, should each page DEFAULT to a different language? -> ASKED NEXT
+
 ### Q13 — Page priority / what the page is for — RESOLVED
 - Asked: the video and the stay compete for the top slot — if this page did one thing well for a year, is it grow the channel or fill the house? (Claude recommended video first, stay second but visually biggest.)
 - Captured:
