@@ -11,7 +11,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
   - `/` (root) — a real couple page, not a door: both of them in a split jungle/fjord header, then the same shared body. The link for brand deals, press, and anyone typing the bare domain.
   - No visitor ever has to click before reaching content. Build Felo's page first; Sanna's reuses the template.
 - **Site language: BILINGUAL — Spanish + English.** Spanish is the primary/main audience today, English is the second language (Sanna's Nordic following, international Airbnb guests). Every UI string lives in one strings file with an `es` and `en` value.
-  - Language chosen by a small `ES | EN` toggle top-right: auto-detect on first visit (default Spanish), user can override, choice remembered.
+  - Language chosen by a small `ES | EN` toggle top-right. Browser language wins when it clearly says es or en; otherwise **every page falls back to Spanish** (Q15 — including `/sanna`). Visitor can override; choice remembered.
   - IMPORTANT distinction: the *chrome* is bilingual (section headers, buttons, taglines, contact copy). The *content* is whatever language it was published in — the YouTube video title comes from the channel, guide names are what they're called. So this is "bilingual interface + native-language content", not a fully translated site.
 - **Brand story to lean on:** Felo = **Venezuelan** ("Nativo Venezolano", 🇻🇪; "jungle man" is his casual framing, good for the visuals); Sanna = Faroe Islands ("vikinga", 🇫🇴). Their own public line is *"nuestra historia entre dos culturas" / "our story between two cultures"* — that IS the brand. Jungle ↔ fjord / warm ↔ cold is its visual spine.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
@@ -74,6 +74,37 @@ What this changes:
 
 Every line above is assembled from words they already use publicly. Pending user + Sanna's confirmation.
 
+## Tagline options (Q15 — pick one per page)
+
+Short is the constraint. All built from vocabulary they already use (venezolano, vikinga, off-grid, dos culturas).
+
+**Root / couple page**
+| # | es | en |
+|---|---|---|
+| 1 | Un venezolano y una vikinga | A Venezuelan and a Viking |
+| 2 | Dos culturas, una historia | Two cultures, one story |
+| 3 | Trópico y fiordos | Tropics and fjords |
+| 4 | Un venezolano y una vikinga, off-grid en Panamá | A Venezuelan and a Viking, off-grid in Panama |
+| 5 | Del Caribe a las Islas Feroe | From the Caribbean to the Faroe Islands |
+| 6 | Nuestra historia entre dos culturas | Our story between two cultures |
+| 7 | Selva y fiordos | Jungle and fjords |
+
+**`/felo`**
+| # | es | en |
+|---|---|---|
+| 1 | Nativo venezolano. Casado con una vikinga. | Venezuelan native. Married to a Viking. |
+| 2 | Venezolano en el trópico | Venezuelan in the tropics |
+| 3 | Venezolano, off-grid en Bocas | Venezuelan, off-grid in Bocas |
+| 4 | Del Caribe, con una vikinga | From the Caribbean, with a Viking |
+
+**`/sanna`**
+| # | es | en |
+|---|---|---|
+| 1 | Feroesa. Casada con un venezolano. | Faroese. Married to a Venezuelan. |
+| 2 | Vikinga en el Caribe | Viking in the Caribbean |
+| 3 | De los fiordos al trópico | From the fjords to the tropics |
+| 4 | Islas Feroe → Panamá | Faroe Islands → Panama |
+
 ## Page spec (as decided so far)
 
 Every page is mobile-first — nearly all traffic is a thumb tapping an Instagram bio.
@@ -135,6 +166,15 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q15 — Per-page fallback language — RESOLVED (Spanish everywhere)
+- Asked: should `/felo` default to Spanish and `/sanna` to English, mirroring their own bios?
+- Captured:
+  - **User: "keep both in Spanish as fallback page."** Recommendation overridden.
+  - Final rule: the browser/phone language still wins when it clearly says Spanish or English. When it is ambiguous or neither, **every page falls back to Spanish** — `/felo`, `/sanna`, and root alike. The `ES | EN` toggle remains on every page.
+  - User also asked for more short tagline/description options → see the expanded Tagline options section.
+- Flags:
+  - Pick final taglines from the expanded option list -> user (+ Sanna for hers)
+
 ### Q14 — Taglines — user answered with a screenshot of both real IG bios
 - Asked: do the drafted taglines work? (Claude drafted "Un caribeño y una vikinga…" etc.)
 - Captured:
