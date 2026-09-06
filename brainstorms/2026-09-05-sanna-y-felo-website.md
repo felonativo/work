@@ -22,7 +22,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - Top of each profile page: row of social media icons linking out to all their profiles
 - Featured/hero section: latest YouTube video, shown with its thumbnail
 - **Faroe Islands guide and affiliate link do not exist yet** — both sections are built into the template but ship switched OFF in the data file. No "coming soon" boxes.
-- A section for their Airbnb property in Bocas del Toro
+- **The off-grid stay is the flagship asset**: an off-grid Airbnb stay in Bocas del Toro, Panama, tied to a coral restoration project. Their own property, no platform cut. Biggest/most distinctive box on the page. Link (provisional): https://caribbeancoralrestorationlanding.vercel.app/
 - A "contact us" box — clicking it opens email (NOT WhatsApp — explicitly excluded, no WhatsApp yet)
 - Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
 - **No follower/subscriber counts anywhere** (user: "skip the counts").
@@ -38,7 +38,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 | YouTube | **JOINT** | https://www.youtube.com/@SannaFelo | LIVE |
 | Email | Felo | feloferoe@gmail.com | LIVE |
 | Email | Sanna | sannalavida@gmail.com | LIVE |
-| Airbnb / the stay | shared | https://caribbeancoralrestorationlanding.vercel.app/ | LIVE — but see flag below |
+| Off-grid stay + coral restoration | shared | https://caribbeancoralrestorationlanding.vercel.app/ | LIVE — provisional link, may move later |
 | Faroe Islands guide | shared | — | **DOES NOT EXIST** → section built but switched off |
 | Affiliate link | shared | — | **DOES NOT EXIST** → section built but switched off |
 
@@ -46,6 +46,7 @@ Notes:
 - Social set is small and clean: **Instagram, TikTok, YouTube** only. No Facebook / X / Pinterest. That's 3 icons (+ optionally an email icon, as in the Linktree reference).
 - The YouTube handle is `@SannaFelo` — the channel is branded to both of them, confirming the joint-channel decision.
 - TECHNICAL: YouTube's RSS feed needs a `channel_id` (`UC…`), not the `@handle`. Must resolve the handle to its channel ID once, then hardcode it in the data file.
+- The stay is BOTH a coral-restoration project and an off-grid Airbnb; marketed as "off-grid stay in Bocas del Toro, Panama".
 - **CORRECTION to the "shared bottom" model (Q6):** contact is NOT shared — there are two different emails. Contact is personal. Working assumption: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, and the root couple page offers both (or a chosen primary). User to correct if wrong.
 
 ## Design language (extracted from user's 4 reference screenshots)
@@ -66,6 +67,17 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q12 — What the "Airbnb" link really is — RESOLVED
+- Asked: is `caribbeancoralrestorationlanding.vercel.app` a conservation project, the rental's landing page, or both? Where should the box point, and does that page stay separate? (Claude tried to fetch the page to answer this without asking — the network egress proxy blocked the domain, so it had to be asked.)
+- Captured:
+  - **User: "its both."** It is a coral restoration project AND the stay. He markets it as: **"my Airbnb off-grid stay in Panama island Bocas del Toro."**
+  - **Link target for now: the Vercel URL**, `https://caribbeancoralrestorationlanding.vercel.app/`. Explicitly "for now" — treat as provisional.
+  - Vocabulary to use on the site (his words): *off-grid stay*, *Bocas del Toro*, *Panama*, coral restoration. NOT generic "our Airbnb".
+  - Strategic note: this is the only asset they own outright with no platform taking a cut, and "stay off-grid and help restore a coral reef" is a far stronger hook than a generic affiliate link. Supports making it the largest, most distinctive box on the page (already agreed: tiny-house styling with a roof).
+- Flags:
+  - The Vercel URL is provisional — revisit whether it should point at a real Airbnb/booking listing (where money changes hands) or move onto `sannayfelo.com/casa` -> user, later
+  - Claude could not inspect the page (egress blocked), so its actual content/copy is unknown — user to supply copy/photos for the box -> user
+
 ### Q11 — What exists today vs aspirational — RESOLVED
 - Asked: which of the six content items has a real URL right now? (Claude recommended shipping only real things, building the rest but switching them off in the data file rather than showing "coming soon" boxes.)
 - Captured:
