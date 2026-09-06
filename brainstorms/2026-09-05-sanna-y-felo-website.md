@@ -10,7 +10,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
   - `/sanna` — Sanna's page. Goes in Sanna's own bios.
   - `/` (root) — a real couple page, not a door: both of them in a split jungle/fjord header, then the same shared body. The link for brand deals, press, and anyone typing the bare domain.
   - No visitor ever has to click before reaching content. Build Felo's page first; Sanna's reuses the template.
-- **Site language: BILINGUAL — Spanish + English.** Spanish is the primary/main audience today, English is the second language (Sanna's Nordic following, international Airbnb guests). Every UI string lives in one strings file with an `es` and `en` value.
+- **Site language: BILINGUAL — Spanish + English.** Spanish is primary: BOTH audiences are mostly Spanish-speaking today (Q22 — Sanna's following is mixed America + Europe, "por ahora mayormente hispano hablante"). English is the second language, for the European slice and international Airbnb guests. Every UI string lives in one strings file with an `es` and `en` value.
   - Language chosen by a small `ES | EN` toggle top-right. Browser language wins when it clearly says es or en; otherwise **every page falls back to Spanish** (Q15 — including `/sanna`). Visitor can override; choice remembered.
   - IMPORTANT distinction: the *chrome* is bilingual (section headers, buttons, taglines, contact copy). The *content* is whatever language it was published in — the YouTube video title comes from the channel, guide names are what they're called. So this is "bilingual interface + native-language content", not a fully translated site.
 - **Brand story to lean on:** Felo = **Venezuelan** ("Nativo Venezolano", 🇻🇪; "jungle man" is his casual framing, good for the visuals); Sanna = Faroe Islands ("vikinga", 🇫🇴). Their own public line is *"nuestra historia entre dos culturas" / "our story between two cultures"* — that IS the brand. Jungle ↔ fjord / warm ↔ cold is its visual spine.
@@ -51,7 +51,7 @@ youtube.com/@sannafelo
 What this changes:
 1. **Felo is VENEZUELAN, not generically "Caribbean."** His own bio: "Nativo Venezolano." Earlier notes said "Caribeño" — corrected everywhere. ("Jungle man" was his casual framing in conversation; it's useful for the *visual* language, but "venezolano" is the public identity.)
 2. **"Vikinga" is HIS OWN WORD** — "Casado con una vikinga." Not Claude's invention. Safe and authentic to use on the site.
-3. **Their two bios are in DIFFERENT LANGUAGES.** Felo's is Spanish, Sanna's is English. Strong evidence their audiences genuinely differ — and direct support for the bilingual decision. Raises the question of per-page *default* language.
+3. **Their two bios are in DIFFERENT LANGUAGES.** Felo's is Spanish, Sanna's is English — which led Claude to assume her audience was English/Nordic. **That assumption was wrong** (see Q22): her following is mixed America + Europe and mostly Spanish-speaking today. Her English bio reflects reach, not her actual majority.
 4. **Sanna is the bigger account** (73.5K vs 56.4K). `/sanna` may well get more traffic than `/felo`, even though the user asked to build Felo's first.
 5. **Their real positioning line already exists**, in both languages: *"Te cuento nuestra historia"* / *"Our story between two cultures."* Better than anything invented — use it.
 6. Both bios already point at the same channel, `@sannafelo` — confirms the joint channel.
