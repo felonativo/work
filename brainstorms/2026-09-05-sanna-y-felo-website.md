@@ -288,6 +288,12 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q29 — Venezuela copy FINAL; assets unblocked; BUILD STARTED
+- **Venezuela box copy — ✅ FINAL (option 2):** es **"Ayuda a las víctimas del terremoto"** / en **"Help the earthquake victims"**. One line, direct, states the cause. Links to `https://gofund.me/4f6bb1f0c`.
+- **Asset blocker dissolved.** Realisation: the build does not need the image bytes at all — only agreed filenames and paths. The site is coded against `/assets/img/felo.webp`, `sanna.webp`, `banner.webp`; the user drops the compressed files there on Hostinger. Re-sharing the Drive link with `?usp=sharing` did not help and was never the issue — the block is this environment's egress policy, not permissions (the connector could already list his folder).
+- User still to compress before upload: banner 4.5 MB -> ~200 KB WebP (squoosh.app).
+- **Build started.**
+
 ### Q28 — Drive folder located; asset transfer + weight problem; GoFundMe cause given
 - **Google Drive folder found and listed** (`1nFcdKPpFhn4jGfa2CNF0vWSfstShrpbJ`, owner nativofelo@gmail.com). Four files:
 
