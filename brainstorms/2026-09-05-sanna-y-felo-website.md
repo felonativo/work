@@ -27,6 +27,27 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
 - **No follower/subscriber counts anywhere** (user: "skip the counts").
 
+## Page spec (as decided so far)
+
+Every page is mobile-first — nearly all traffic is a thumb tapping an Instagram bio.
+
+**Personal top** (differs per page)
+1. `ES | EN` toggle — small, top-right, must not push down the photo
+2. Banner image, fades in on load
+3. Circular profile photo, centered, top-middle (overlapping the banner's lower edge)
+4. Name
+5. One-line tagline
+6. Social icon row — flat, monochrome, unlabeled: Instagram · TikTok · YouTube
+
+**Shared bottom** (same on every page, one data file)
+1. **Último Video · Latest Video** — rich card: 16:9 thumbnail, play overlay, title, channel name. ONE video, auto-pulled from the joint channel's RSS. No subscriber count.
+2. **Quédate con Nosotros · Stay With Us** — the off-grid stay. The BIGGEST, most distinctive box on the page: styled as the tiny house itself, little roof on top, something "dynamic". Not shaped like the other boxes.
+3. **Nuestras Guías · Our Guides** — OFF (no content yet)
+4. **Lo Que Usamos · What We Use** — affiliate. OFF (no content yet)
+5. **Escríbenos · Say Hi** — opens email. Per-page address (Felo's / Sanna's). No WhatsApp.
+
+**Order rationale (Q13):** video first, stay second. A visitor arriving from a reel is in "who are these two?" mode, not "book a trip" mode — the video is the low-commitment next step they came for. The stay converts them on the way down, which is why it's second but visually dominant.
+
 ## Content inventory (confirmed by user, Q11)
 
 | Item | Owner | URL / value | Status |
@@ -67,6 +88,14 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q13 — Page priority / what the page is for — RESOLVED
+- Asked: the video and the stay compete for the top slot — if this page did one thing well for a year, is it grow the channel or fill the house? (Claude recommended video first, stay second but visually biggest.)
+- Captured:
+  - **User: "yes video first, airbnb 2nd."** Recommendation confirmed.
+  - Final order locked; full ordering written into the Page spec section above.
+  - The stay is second in sequence but FIRST in visual weight — biggest, most distinctive box.
+- Flags: none
+
 ### Q12 — What the "Airbnb" link really is — RESOLVED
 - Asked: is `caribbeancoralrestorationlanding.vercel.app` a conservation project, the rental's landing page, or both? Where should the box point, and does that page stay separate? (Claude tried to fetch the page to answer this without asking — the network egress proxy blocked the domain, so it had to be asked.)
 - Captured:
