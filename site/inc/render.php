@@ -187,7 +187,7 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?= t($str['section_help'], 'h2', 'sec') ?>
     <a class="card vzla" href="<?= e($vz['url']) ?>" target="_blank" rel="noopener" data-track="venezuela">
       <span class="ribbon" aria-hidden="true"></span>
-      <span class="starfield"><?= star_arc() ?></span>
+      <?= star_arc() ?>
       <span class="card-body">
         <?= t($vz['label'], 'span', 'card-label') ?>
         <?= t($str['donate_via'], 'span', 'card-meta') ?>
@@ -226,7 +226,7 @@ function render_page(array $cfg, array $str, string $variant): string {
 
   <!-- 6. Contact -->
   <section class="block">
-    <?= t($str['section_hello'], 'h2', 'sec') ?>
+    <?= t($isCouple ? $str['section_hello'] : $str['section_hello_1'], 'h2', 'sec') ?>
     <?php if ($isCouple): ?>
       <?php foreach (['sanna', 'felo'] as $slug): $p = $cfg['people'][$slug]; ?>
         <a class="card row" href="mailto:<?= e($p['email']) ?>" data-track="email:<?= e($slug) ?>">
@@ -238,8 +238,10 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?php else: ?>
       <a class="card row" href="mailto:<?= e($subject['email']) ?>" data-track="email:<?= e($variant) ?>">
         <span class="ico"><?= icon('mail') ?></span>
-        <?= t($str['email_us'], 'span', 'card-label') ?>
-        <span class="card-meta"><?= e($subject['email']) ?></span>
+        <span class="card-body">
+          <?= t($str['email_me'], 'span', 'card-label') ?>
+          <span class="card-meta"><?= e($subject['email']) ?></span>
+        </span>
       </a>
     <?php endif; ?>
   </section>
