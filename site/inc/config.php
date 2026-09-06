@@ -23,6 +23,7 @@ return [
     'felo' => [
       'name'    => 'Felo',
       'photo'   => '/assets/img/felo.webp',
+      'banner'  => '/assets/img/banner-sand.webp',
       'email'   => 'feloferoe@gmail.com',
       'flag'    => '🇻🇪',
       'tagline' => [
@@ -38,6 +39,7 @@ return [
     'sanna' => [
       'name'    => 'Sanna',
       'photo'   => '/assets/img/sanna.webp',
+      'banner'  => '/assets/img/banner-sand.webp',
       'email'   => 'sannalavida@gmail.com',
       'flag'    => '🇫🇴',
       'tagline' => [
@@ -55,7 +57,7 @@ return [
   // The couple page at the root.
   'couple' => [
     'name'    => 'Sanna y Felo',
-    'photo'   => '/assets/img/banner.webp',
+    'banner'  => '/assets/img/banner.webp',
     'tagline' => [
       'es' => 'Dos culturas explorando el mundo',
       'en' => 'Two cultures exploring the world',

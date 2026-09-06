@@ -34,11 +34,7 @@
     }
     if (btn) {
       btn.dataset.lang = lang;
-      var on = btn.querySelector('.on'), off = btn.querySelector('.off');
-      if (on && off) {
-        on.textContent = lang.toUpperCase();
-        off.textContent = lang === 'es' ? 'EN' : 'ES';
-      }
+      btn.setAttribute('aria-checked', lang === 'en' ? 'true' : 'false');
     }
   }
 

@@ -367,3 +367,154 @@ a.avatar:hover { transform: translateY(-3px); }
     transition-duration: .001ms !important;
   }
 }
+
+
+/* ══ Sand theme — /felo and /sanna ════════════════════════════════
+   The root stays jungle green. These two go light: sand ground,
+   deep-green type, and the same Faroese red on the play badge so the
+   three pages still read as one family.
+   ══════════════════════════════════════════════════════════════════ */
+
+[data-theme="sand"] {
+  --bg:         #EDE4D4;
+  --surface:    #F8F2E7;
+  --surface-hi: #FFFDF8;
+  --line:       #D9CCB5;
+  --text:       #14392A;
+  --muted:      #6B8577;
+  --green:      #2E6B4F;
+  --wood:       #9A6E36;
+  --wood-lo:    #6E4C22;
+}
+
+[data-theme="sand"] body::before {
+  background:
+    radial-gradient(70% 40% at 50% 0%, rgba(47,186,168,.10), transparent 70%),
+    radial-gradient(70% 45% at 50% 100%, rgba(46,107,79,.07), transparent 70%);
+}
+
+[data-theme="sand"] .banner::after {
+  background: linear-gradient(to bottom, transparent, rgba(237,228,212,.55) 45%, var(--bg));
+}
+
+/* The portrait sits inside the banner, not straddling its edge. */
+.banner { position: relative; }
+
+.avatars.inset {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  align-items: center;
+  margin: 0;
+}
+.avatars.inset .avatar {
+  width: 132px;
+  height: 132px;
+  border-color: rgba(255,255,255,.9);
+  box-shadow: 0 0 0 1px rgba(20,57,42,.18), 0 14px 34px rgba(20,57,42,.28);
+}
+
+[data-theme="sand"] .name    { color: var(--text); }
+[data-theme="sand"] .tagline { color: var(--green); }
+[data-theme="sand"] .sec     { color: var(--green); opacity: .8; }
+
+[data-theme="sand"] .socials a { color: var(--green); opacity: .9; }
+[data-theme="sand"] .socials a:hover { opacity: 1; }
+
+[data-theme="sand"] .card {
+  border-color: var(--line);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(20,57,42,.05);
+}
+[data-theme="sand"] .card:hover {
+  border-color: var(--green);
+  background: var(--surface-hi);
+}
+[data-theme="sand"] .card.row .ico { color: var(--green); }
+[data-theme="sand"] .foot { color: var(--muted); }
+[data-theme="sand"] .foot a { border-color: rgba(107,133,119,.5); }
+
+/* Venezuela: white stars need a blue field on a light ground —
+   which is exactly what the real flag does. */
+.starfield { display: block; }
+[data-theme="sand"] .starfield {
+  width: 196px;
+  margin: 14px auto 2px;
+  padding: 3px 0 5px;
+  border-radius: 10px;
+  background: #00247D;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+}
+[data-theme="sand"] .vzla .stars { margin: 0 auto; }
+[data-theme="sand"] .vzla .stars use { opacity: .9; }
+[data-theme="sand"] .vzla::after {
+  background: linear-gradient(102deg, transparent 34%, rgba(255,206,0,.16) 50%, transparent 66%);
+}
+
+/* The cabin needs a deeper wood to hold up against sand. */
+[data-theme="sand"] .cabin-body   { fill: var(--wood-lo); }
+[data-theme="sand"] .cabin-roof   { stroke: var(--wood); }
+[data-theme="sand"] .cabin-door   { fill: #3F2C13; }
+[data-theme="sand"] .cabin-stilts rect { fill: #55684F; }
+[data-theme="sand"] .cabin-win    { fill: #2C2412; }
+[data-theme="sand"] .stay {
+  border-color: var(--wood);
+  background: radial-gradient(120% 90% at 18% 0%, rgba(154,110,54,.14), transparent 62%), var(--surface);
+}
+[data-theme="sand"] .stay:hover {
+  background: radial-gradient(120% 90% at 18% 0%, rgba(154,110,54,.22), transparent 62%), var(--surface-hi);
+}
+
+/* ══ Language switch — an on/off pill, centred at the top ══════════ */
+.lang {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  width: 96px;
+  padding: 3px;
+  border: 1px solid rgba(244,239,230,.30);
+  border-radius: 999px;
+  background: rgba(9,25,18,.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font: 600 11.5px/1 "DM Sans", sans-serif;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.lang .opt {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  height: 24px;
+  color: var(--text);
+  opacity: .55;
+  transition: opacity .25s var(--ease), color .25s var(--ease);
+}
+.lang .knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  transition: transform .28s var(--ease);
+}
+.lang[data-lang="en"] .knob { transform: translateX(100%); }
+.lang[data-lang="es"] .opt:first-of-type,
+.lang[data-lang="en"] .opt:last-of-type { opacity: 1; color: #fff; }
+
+[data-theme="sand"] .lang {
+  border-color: rgba(20,57,42,.22);
+  background: rgba(255,253,248,.72);
+}
+[data-theme="sand"] .lang .opt { color: var(--text); }

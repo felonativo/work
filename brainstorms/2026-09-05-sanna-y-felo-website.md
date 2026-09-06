@@ -288,6 +288,20 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q31 — Two themes: root stays jungle, personal pages go sand
+- User sent a marked-up mockup and a new banner. Confirmed before building this time.
+- **Applied:**
+  1. **Language control is now an on/off switch, top centre** — a pill split in two with a sliding knob, replacing the corner `ES | EN` text. Applies to all three pages.
+  2. **Root unchanged** — same jungle-green ground, same banner.
+  3. **`/felo` and `/sanna` are now a light SAND theme:** new beach banner (`banner-sand.webp`), sand ground `#EDE4D4`, cards `#F8F2E7`, deep-green type `#14392A`, green accents `#2E6B4F`.
+  4. **The portrait now sits INSIDE the banner**, centred, at 132px — not straddling its lower edge.
+- **Two decisions the user made when asked:**
+  - **(a) Play badge stays Faroese red.** All-green on sand would flatten; the red is the thread tying the light pages back to the dark root.
+  - **(b) The stars get a blue field.** White stars vanish on sand, so the seven now sit on a `#00247D` band — which is what the real flag does anyway. More faithful than the dark-theme version.
+- **Raised and accepted:** root and personal pages are now visually two different styles. Almost everyone arrives from one bio and sees one page, so it costs little — and the user said he likes the contrast.
+- Cabin darkened for the light ground (honey wood on sand had too little contrast).
+- **Judgment call to flag:** the switch knob is red, not green. It reads well and matches the play badge, but it is Claude's choice, not the user's instruction.
+
 ### Q30 — Process correction + three fixes
 - **Process:** user pulled Claude up for building without an explicit go-ahead. Fair — he answered "2" to a tagline question and Claude read it as approval to build the whole site. **Rule from here: confirm before building.**
 - **Three fixes, applied as instructed:**

@@ -83,14 +83,14 @@ function render_page(array $cfg, array $str, string $variant): string {
 
     ob_start(); ?>
 <!doctype html>
-<html lang="es" data-variant="<?= e($variant) ?>">
+<html lang="es" data-variant="<?= e($variant) ?>" data-theme="<?= $isCouple ? 'jungle' : 'sand' ?>">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title><?= e($title) ?></title>
 <meta name="description" content="<?= e($desc) ?>">
 <link rel="canonical" href="<?= e($canon) ?>">
-<meta name="theme-color" content="#0E2A1F">
+<meta name="theme-color" content="<?= $isCouple ? '#0E2A1F' : '#EDE4D4' ?>">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
@@ -111,16 +111,28 @@ function render_page(array $cfg, array $str, string $variant): string {
 </head>
 <body>
 
-<button id="lang" class="lang" type="button"
+<button id="lang" class="lang" type="button" role="switch" aria-checked="false"
         aria-label="<?= e($str['lang_switch']['es']) ?>" data-lang="es">
-  <span class="on">ES</span><span class="sep">|</span><span class="off">EN</span>
+  <span class="knob" aria-hidden="true"></span>
+  <span class="opt">ES</span><span class="opt">EN</span>
 </button>
 
 <main class="wrap">
 
   <header class="hero">
     <div class="banner">
-      <img src="/assets/img/banner.webp" alt="" width="1600" height="900" fetchpriority="high">
+      <img src="<?= e($isCouple ? $cfg['couple']['banner'] : $subject['banner']) ?>" alt=""
+           width="1600" height="1200" fetchpriority="high">
+      <?php if (!$isCouple): ?>
+        <div class="avatars one inset">
+          <div class="who">
+            <span class="avatar">
+              <img src="<?= e($subject['photo']) ?>" alt="<?= e($subject['name']) ?>"
+                   width="240" height="240" loading="eager">
+            </span>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
 
     <?php if ($isCouple): ?>
@@ -139,13 +151,6 @@ function render_page(array $cfg, array $str, string $variant): string {
       <h1 class="name"><?= e($cfg['couple']['name']) ?></h1>
       <?= t($cfg['couple']['tagline'], 'p', 'tagline') ?>
     <?php else: ?>
-      <div class="avatars one">
-        <div class="who">
-          <span class="avatar">
-            <img src="<?= e($subject['photo']) ?>" alt="<?= e($subject['name']) ?>" width="240" height="240" loading="eager">
-          </span>
-        </div>
-      </div>
       <h1 class="name"><?= e($subject['name']) ?></h1>
       <?= t($subject['tagline'], 'p', 'tagline') ?>
       <?= social_row($subject['socials'], $subject['name']) ?>
@@ -182,7 +187,7 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?= t($str['section_help'], 'h2', 'sec') ?>
     <a class="card vzla" href="<?= e($vz['url']) ?>" target="_blank" rel="noopener" data-track="venezuela">
       <span class="ribbon" aria-hidden="true"></span>
-      <?= star_arc() ?>
+      <span class="starfield"><?= star_arc() ?></span>
       <span class="card-body">
         <?= t($vz['label'], 'span', 'card-label') ?>
         <?= t($str['donate_via'], 'span', 'card-meta') ?>
