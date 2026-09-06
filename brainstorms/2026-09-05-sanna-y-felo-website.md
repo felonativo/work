@@ -70,18 +70,9 @@ What this changes:
 
 Rationale: the root sells the joint proposition; the personal pages carry the personality and the hook.
 
-### Earlier identity-first drafts (superseded for root, kept for reference)
-- root (old): es *Un venezolano y una vikinga — nuestra historia entre dos culturas* / en *A Venezuelan and a Viking — our story between two cultures*
-
-**`/felo`**
-- es: **Nativo venezolano. Casado con una vikinga.**
-- en: **Venezuelan native. Married to a Viking.**
-
-**`/sanna`**
-- es: **Feroesa. Casada con un venezolano.**
-- en: **Faroese. Married to a Venezuelan.**
-
-Every line above is assembled from words they already use publicly. Pending user + Sanna's confirmation.
+### Earlier identity-first drafts (superseded, kept for reference)
+- root: es *Un venezolano y una vikinga — nuestra historia entre dos culturas* / en *A Venezuelan and a Viking — our story between two cultures*
+- `/sanna`: es *Feroesa. Casada con un venezolano.* / en *Faroese. Married to a Venezuelan.* — dropped: it defines the larger account by her husband, which her own bio pointedly does not do.
 
 ## Tagline options (Q15 — pick one per page)
 
