@@ -174,7 +174,8 @@ Every page is mobile-first — nearly all traffic is a thumb tapping an Instagra
 6. Social icon row — flat, monochrome, unlabeled: Instagram · TikTok · YouTube
 
 **Shared bottom** (same on every page, one data file)
-1. **Último Video · Latest Video** — rich card: 16:9 thumbnail, play overlay, title, channel name. ONE video, auto-pulled from the joint channel's RSS. No subscriber count.
+1. **Último Video · Latest Video** — rich card: 16:9 thumbnail, play overlay, title, channel name. ONE video, auto-pulled from the joint channel's RSS via the PHP script. No subscriber count.
+   - **The card is a LINK, not a player (Q24).** Clicking opens YouTube. No embedded iframe, no autoplay — it keeps the page fast and sends real, engaged traffic to the channel where subscribes and watch time actually land.
 2. **Quédate con Nosotros · Stay With Us** — the off-grid stay. The BIGGEST, most distinctive box on the page: styled as the tiny house itself, little roof on top, something "dynamic". Not shaped like the other boxes.
 3. **Nuestras Guías · Our Guides** — OFF (no content yet)
 4. **Lo Que Usamos · What We Use** — affiliate. OFF (no content yet)
@@ -222,6 +223,19 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q24 — Video behaviour: thumbnail links out, NO embed, NO autoplay — RESOLVED
+- Asked (by the user): does the video autoplay on entry or need a click? He preferred just a thumbnail, but wondered whether autoplay could farm automatic views since views now count from the start.
+- Captured:
+  - **User picked (a): thumbnail card that opens YouTube on click.** His original instinct. No embedded player, no autoplay.
+  - **The autoplay-for-views idea does not work, and Claude said so plainly:**
+    - YouTube only counts a view when playback is *initiated by the person*. Autoplayed playback isn't counted, or is filtered as invalid traffic.
+    - Browsers block autoplay with sound, so it would run muted — precisely the case that doesn't count.
+    - Even if it counted, mass 2-second bounces wreck average view duration, which the algorithm *does* weigh. A bad view is worth less than no view.
+    - Artificially inflating views violates YouTube's terms — not worth risking the channel.
+  - **Also a real performance cost avoided:** the embedded YouTube player pulls roughly a megabyte of JavaScript, on a page whose whole job is opening instantly from an Instagram bio.
+  - Rejected option (b) — click-to-load inline player: the view would count (user-initiated), but the visitor stays on the site instead of landing on YouTube, so no subscribe, no comment, no session time for the algorithm. Since the page's stated job (Q13) is growing the channel, sending them out wins.
+- Flags: none
+
 ### Q23 — PHP confirmed on Hostinger — RESOLVED
 - Asked: does the Hostinger plan include PHP (and cron)?
 - Captured:
