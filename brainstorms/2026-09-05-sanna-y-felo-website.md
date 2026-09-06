@@ -222,6 +222,13 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q23 — PHP confirmed on Hostinger — RESOLVED
+- Asked: does the Hostinger plan include PHP (and cron)?
+- Captured:
+  - **User: "si incluye."** PHP is available.
+  - ✅ The video-refresh mechanism is settled: a small server-side PHP script fetches the joint channel's RSS, caches it for a few hours, and renders the video card. Self-updating, no API key, no build step, nothing for them to maintain.
+- Flags: none
+
 ### Q22 — Share preview language, analytics, AND hosting revealed (Hostinger)
 - Asked: designed OG cards in Spanish + cookieless analytics, or Google Analytics with a banner?
 - Captured:
@@ -253,7 +260,8 @@ User sent a photo of the two of them in Faroese national dress, walking, with a 
     - **Key constraint surfaced: the share preview CANNOT be bilingual.** It is baked into the HTML and read by WhatsApp/Instagram before any JS runs, so the `ES | EN` toggle has no effect on it. One language must be chosen — recommend Spanish, matching the site's fallback.
     - Recommend a *designed card* per page (photo + name + tagline on the brand green) rather than a raw photo — readable at thumbnail size and looks deliberate.
   - **Analytics:** the useful metric is NOT pageviews — it is **outbound click-through per box**, since the real question is "does the house convert better than the video?" Plain pageviews cannot answer that. Requires click events on each link.
-    - **GDPR matters here:** Sanna's audience is European/Nordic. Google Analytics uses cookies and would require a consent banner on a page whose whole job is being scanned in three seconds. Cookieless analytics (Cloudflare Web Analytics, Vercel Analytics) avoid the banner entirely and are free.
+    - **GDPR still matters:** part of Sanna's audience is European. (Claude framed it as "Nordic" here — corrected in Q22: her following is mixed America + Europe and mostly Spanish-speaking.) Google Analytics uses cookies and would need a consent banner on a page whose whole job is being scanned in three seconds. Cookieless analytics avoid the banner entirely and are free.
+    - ⚠️ **Narrowed by Q22:** Vercel Analytics is Vercel-only and won't run on Hostinger. Final choice is **Cloudflare Web Analytics**.
 - Flags:
   - Pick the analytics tool -> user
   - Confirm Spanish-only share preview and designed cards -> user
@@ -421,7 +429,8 @@ User sent a photo of the two of them in Faroese national dress, walking, with a 
 - Asked: How should the latest YouTube video stay current — (a) free RSS feed + daily rebuild, (b) serverless function for instant, (c) manual? And do you want subscriber counts (which would require a YouTube API key)?
 - Captured:
   - **User: "Skip the counts."** No subscriber/follower counts anywhere on the site.
-  - Skipping counts removes the only reason to need a YouTube API key → **working decision: option (a)**, YouTube's free public RSS feed (`youtube.com/feeds/videos.xml?channel_id=...`), refreshed by a scheduled daily rebuild. No API key, no quota, no cost, no ongoing manual work. Video appears automatically within ~24h of publishing.
+  - Skipping counts removes the only reason to need a YouTube API key → **option (a)**, YouTube's free public RSS feed (`youtube.com/feeds/videos.xml?channel_id=...`). No API key, no quota, no cost, no manual work.
+  - ⚠️ **SUPERSEDED BY Q22:** the refresh mechanism was going to be a scheduled daily rebuild. Hosting turned out to be Hostinger, so it is now a **server-side PHP fetch with a few hours' cache** instead. The RSS-feed decision itself still stands.
   - Consequence: hosting can stay a plain static site (no serverless runtime required).
   - Consequence for design: the reference examples' social-proof subtitles (e.g. "466.7K followers") are OUT. Link button subtitles, if used, must be hand-written text instead.
 - Flags: none
@@ -447,7 +456,7 @@ User sent a photo of the two of them in Faroese national dress, walking, with a 
   - Availability check + registration of `sannayfelo.com` -> not yet done
 
 ### Q1 — Site structure (one domain, two profiles) & visual style
-- Asked: Tech/hosting approach (recommended: static site on GitHub Pages/Vercel)
+- Asked: Tech/hosting approach (recommended: static site on GitHub Pages/Vercel — ⚠️ superseded by Q22, hosting is Hostinger)
 - Captured:
   - **Site architecture decision:** ONE shared domain for both. A main "chooser" landing page lets a visitor pick her profile or his profile, routing to separate sub-pages — not two separate sites/domains.
   - **Visual style:** green color palette, "very adventurous" feeling/vibe
