@@ -64,9 +64,13 @@ What this changes:
 - es: **Dos culturas explorando el mundo**
 - en: **Two cultures exploring the world**
 
-**Personal pages — must ALSO be commercial (Q18), pending final pick.**
-Claude's picks: `/felo` = Viajes, naturaleza y vida off-grid · `/sanna` = Viajes, cultura y vida entre dos mundos.
-Each gets a *different* commercial angle so the three pages don't blur — Felo owns nature/off-grid, Sanna owns culture/two-worlds. Full options below.
+**`/sanna` — ✅ FINAL (Q19)**
+- es: **Viajes, cultura y vida entre dos mundos**
+- en: **Travel, culture and life between two worlds**
+
+**`/felo` — pending.** Wants the "Explorando el trópico y…" shape, but WITHOUT leaning on off-grid. Variants below.
+
+**VOICE RULE (Q19): do not over-use "off-grid."** It is the product, not the identity — say it once, on the stay box.
 
 ### Earlier identity-first drafts (superseded, kept for reference)
 - root: es *Un venezolano y una vikinga — nuestra historia entre dos culturas* / en *A Venezuelan and a Viking — our story between two cultures*
@@ -140,6 +144,17 @@ The tagline's job here is to sell: a brand, sponsor or guest should know the nic
 
 **Claude's picks: felo #1, sanna #1.** They stay commercial, match the root's register, and each claims a different territory so the pages read as distinct.
 
+### `/felo` — variants of #2 without leaning on off-grid (Q19)
+| # | es | en |
+|---|---|---|
+| 2a | Explorando el trópico y la naturaleza | Exploring the tropics and nature |
+| 2b | Explorando el trópico y la vida simple | Exploring the tropics and simple living |
+| 2c | Explorando el trópico, el mar y la selva | Exploring the tropics, the sea and the jungle |
+| 2d | Explorando el trópico y sus culturas | Exploring the tropics and its cultures |
+| 2e | Explorando la naturaleza del trópico | Exploring the nature of the tropics |
+
+Claude's pick: **2a** — closest to #2's shape, keeps nature (his territory), drops the off-grid repetition, and pairs cleanly with Sanna's "cultura" angle so the two pages stay distinct.
+
 ## Page spec (as decided so far)
 
 Every page is mobile-first — nearly all traffic is a thumb tapping an Instagram bio.
@@ -201,6 +216,17 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q19 — De-emphasise "off-grid"; Sanna's tagline DECIDED
+- Asked: which commercial taglines for the personal pages?
+- Captured:
+  - **User: "no te enfoques tanto en el off-grid. me gusta el dos y uno de sanna."**
+  - **`/sanna` — ✅ FINAL (option 1):** es *Viajes, cultura y vida entre dos mundos* / en *Travel, culture and life between two worlds*
+  - **`/felo` — he likes option 2's SHAPE ("Explorando el trópico y…") but option 2 itself contains "off-grid"**, which he just asked to de-emphasise. Contradiction flagged to him; variants of #2 without off-grid offered.
+  - **SITE-WIDE VOICE RULE (new):** "off-grid" is not the identity. Use it sparingly — ideally once, on the stay box, where it is literally the product. Do not repeat it across taglines, headers and copy.
+    - Consequence: revisit wording elsewhere in this doc that leans on "off-grid" as the brand (the flagship-asset bullet, the stay box copy).
+- Flags:
+  - `/felo` final tagline -> user, choosing from the no-off-grid variants of #2
+
 ### Q18 — Personal taglines must also be commercial
 - Asked: keep the personal taglines identity-based (their own bio words)?
 - Captured:
