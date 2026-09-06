@@ -105,6 +105,23 @@ Short is the constraint. All built from vocabulary they already use (venezolano,
 | 3 | De los fiordos al trópico | From the fjords to the tropics |
 | 4 | Islas Feroe → Panamá | Faroe Islands → Panama |
 
+### Generic / commercial options for the couple (Q16 — "que ayude a vendernos")
+The tagline's job here is to sell: a brand, sponsor or guest should know the niche instantly.
+
+| # | es | en | angle |
+|---|---|---|---|
+| A | Viajes, naturaleza y vida off-grid | Travel, nature and off-grid living | names the niche outright — most sellable |
+| B | Aventura, naturaleza y vida simple | Adventure, nature and simple living | softer, lifestyle-brand friendly |
+| C | Dos mundos, una aventura | Two worlds, one adventure | emotional, brand-y, less informative |
+| D | Historias de viaje entre dos mundos | Travel stories from two worlds | keeps the two-cultures hook, still generic |
+| E | Viajamos, creamos, compartimos | We travel, we create, we share | creator-forward, rhythmic |
+| F | Creando historias de viaje y naturaleza | Creating travel and nature stories | plain descriptor, safe |
+| G | Dos culturas explorando el mundo | Two cultures exploring the world | bridges identity and niche |
+
+**Claude's pick: A.** Three words name the whole business — travel, nature, off-grid — and it works equally for a sponsor, an Airbnb guest and a new follower. It also stays true as the content evolves.
+
+**Note the trade-off:** generic sells, but "un venezolano y una vikinga" is the hook nobody else on earth has. The resolution is that the design carries the identity (flags, split header, photos) while the tagline does the commercial work — so neither is lost.
+
 ## Page spec (as decided so far)
 
 Every page is mobile-first — nearly all traffic is a thumb tapping an Instagram bio.
@@ -166,6 +183,16 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q16 — Tagline should be generic + commercial ("que ayude a vendernos")
+- Asked: (user request) more generic options for the couple description, aimed at selling themselves. Short.
+- Captured:
+  - **The tagline's job changed.** It is no longer an identity line ("who we are") — it is a commercial positioning line aimed at brands, sponsors, Airbnb guests and collaborators.
+  - Implication: it should name the NICHE plainly (travel / nature / off-grid living) so a brand reading it in three seconds knows whether they fit.
+  - Key structural insight surfaced: he does not have to choose between generic and distinctive. The 🇻🇪 + 🇫🇴 flags, the split jungle/fjord header and the profile photos already carry the venezolano+vikinga identity visually — so the TEXT can do the commercial work while the DESIGN keeps the hook. Both jobs get done.
+  - New generic option set written into the Tagline options section.
+- Flags:
+  - Final pick still open -> user (+ Sanna for hers)
+
 ### Q15 — Per-page fallback language — RESOLVED (Spanish everywhere)
 - Asked: should `/felo` default to Spanish and `/sanna` to English, mirroring their own bios?
 - Captured:
