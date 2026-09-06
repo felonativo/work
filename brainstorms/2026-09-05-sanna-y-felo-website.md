@@ -24,7 +24,9 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - **Faroe Islands guide and affiliate link do not exist yet** — both sections are built into the template but ship switched OFF in the data file. No "coming soon" boxes.
 - **The stay is the flagship asset**: an off-grid Airbnb in Bocas del Toro, Panama, tied to a coral restoration project. (Per the Q19 voice rule, "off-grid" appears in SITE copy only here, on the stay box — not across taglines and headers.) Their own property, no platform cut. Biggest/most distinctive box on the page. Link (provisional): https://caribbeancoralrestorationlanding.vercel.app/
 - A "contact us" box — clicking it opens email (NOT WhatsApp — explicitly excluded, no WhatsApp yet)
-- Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
+- **Hosting: Hostinger** (user's own hosting + domain). Site is plain HTML/CSS/JS with a data file. The latest video is pulled from YouTube's free RSS by a **small PHP script that caches server-side** — no API key, no build step, no manual updates. (Supersedes the earlier GitHub Actions rebuild plan, which does not fit Hostinger.)
+- **Analytics: Cloudflare Web Analytics** — free, cookieless, no consent banner, host-agnostic. Must track outbound clicks per box, not just pageviews.
+- **Share preview (Open Graph): Spanish only**, designed cards at 1200×630, one per page.
 - **No follower/subscriber counts anywhere** (user: "skip the counts").
 
 ## Their real Instagram bios (screenshot, Q14) — source of truth for voice
@@ -220,6 +222,29 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q22 — Share preview language, analytics, AND hosting revealed (Hostinger)
+- Asked: designed OG cards in Spanish + cookieless analytics, or Google Analytics with a banner?
+- Captured:
+  - **Share preview: SPANISH.** Confirmed. Designed cards, one per page, 1200×630.
+  - **Analytics: use the recommended cookieless option.** Confirmed — no Google Analytics, no consent banner.
+  - **AUDIENCE CORRECTION:** Claude assumed Sanna's following was Nordic/English-speaking. **User: her audience is mixed America + Europe, "por ahora mayormente hispano hablante."** Mostly Spanish-speaking for now. This retroactively vindicates the user's Q15 call to make Spanish the fallback on BOTH pages — Claude's per-page-language recommendation was based on a wrong assumption about her audience.
+  - **HOSTING REVEALED: Hostinger** — user will have his hosting and domain there. This was assumed to be GitHub Pages/Vercel until now.
+
+### ⚠️ Architecture change forced by Hostinger
+The Q5 plan (static site + daily scheduled rebuild via GitHub Actions to refresh the YouTube RSS) **does not fit Hostinger**, which is classic shared hosting with no build step.
+
+- **New recommended approach: a small PHP file** that fetches the channel's RSS server-side, caches the result to a local file for a few hours, and renders the video card. Hostinger runs PHP natively.
+  - Still no API key, no quota, no cost, no manual updates — and it is actually *fresher* than a daily rebuild.
+  - It also solves the CORS problem: the browser can't fetch YouTube's RSS directly, but the PHP file can.
+  - Hostinger also offers cron on most plans, as a fallback way to regenerate a cached JSON on a schedule.
+- **Analytics narrows to Cloudflare Web Analytics.** Vercel Analytics was offered earlier but is Vercel-only and will NOT work on Hostinger. Cloudflare's is a single script tag, free, cookieless, works on any host.
+- Everything else survives unchanged: the site is still plain HTML/CSS/JS with a data file; only the video-refresh mechanism and the analytics vendor change.
+
+### Hero image received (root page)
+User sent a photo of the two of them in Faroese national dress, walking, with a Caribbean beach and palms on the left and Faroese sea cliffs and a waterfall on the right — the jungle↔fjord split concept already realised in a single image. Strong candidate for the **root page banner**.
+- NOTE: the image was not saved to disk in this session, so the actual file still needs to be supplied for the build.
+- Still needed: individual profile photos for `/felo` and `/sanna`.
+
 ### Q21 — Share preview + analytics — both wanted
 - Asked: completeness backstop. Claude named two untouched areas: the link's share preview (Open Graph) and analytics.
 - Captured:
@@ -450,8 +475,9 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 ## Open items — what's still needed
 
 **Blocking the build**
-1. **Images.** Profile photo for Felo, for Sanna, and for the root (both of them). Plus banner images — ideally one jungle/tropics shot and one Faroe/fjord shot for the split header. Nothing can be built without these.
-2. **Domain `sannayfelo.com`** — check availability and register it.
+1. **Images.** Root banner: the Caribbean/Faroe split photo he sent — needs to be supplied as an actual file. Still missing: profile photos for Felo and for Sanna.
+2. **Domain `sannayfelo.com`** — register it at Hostinger (check availability first).
+3. **Hostinger plan details** — confirm PHP is available and whether cron is included.
 
 **Needs a quick answer**
 3. **Email routing.** Assumed: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, root → both, or one primary. Confirm.
