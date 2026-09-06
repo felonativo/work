@@ -1,5 +1,5 @@
 # Sanna y Felo — Link-in-bio Website: Brainstorm / Discovery Notes
-Date: 2026-09-05 · Goal: Design a Linktree-style link-in-bio website at **sannayfelo.com** — a shared landing page that routes to Felo's profile and Sanna's profile
+Date: 2026-09-05 · Goal: Design a Linktree-style link-in-bio website at **sannayfelo.com** — a couple page at the root plus a standalone page for each of them. **Site language: Spanish.**
 
 Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 
@@ -10,6 +10,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
   - `/sanna` — Sanna's page. Goes in Sanna's own bios.
   - `/` (root) — a real couple page, not a door: both of them in a split jungle/fjord header, then the same shared body. The link for brand deals, press, and anyone typing the bare domain.
   - No visitor ever has to click before reaching content. Build Felo's page first; Sanna's reuses the template.
+- **Site language: SPANISH.** Spanish-speaking followers are the main audience "now". All UI copy, section headers, buttons and taglines in Spanish. Because the user said "now", keep every UI string in one strings/data file so another language (or a per-page language) can be added later without touching layout.
 - **Brand story to lean on:** Felo = Caribbean, "jungle man"; Sanna = Faroe Islands, "Viking". The jungle ↔ fjord / warm ↔ cold contrast is the visual and narrative spine of the whole site.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
 - **YouTube is one joint channel** → the same single latest video appears on both pages. One video only, not a carousel.
@@ -32,7 +33,7 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 2. **Header stack order is consistent:** banner/wordmark → profile image → name → one-line tagline → social icon row. Ziwe's is almost exactly what Felo described (banner graphic + centered photo).
 3. **Social icons are flat, monochrome, unlabeled, one row.** No boxes or buttons — they inherit a single brand color. 6–8 max before crowding. Linktree's row includes an email icon alongside the socials.
 4. **The YouTube card is the hero, and it's rich — not a plain link.** Both Ziwe and Kelsey show: large 16:9 thumbnail + play overlay, video title, channel name, metadata (subscriber count, "2 weeks ago"), and an embedded Subscribe button. Far more compelling than a text link. NOTE: Linktree auto-fetches this; on a custom site it's a build decision.
-5. **Section headers group links into meaning** ("Iconic Guest", "Popular Episodes", "Follow Me on Social", "Shop my favs!"). Grouping beats a flat wall of 8 buttons. → Ours: Latest Video / Our Guides / Stay With Us / Gear We Use / Say Hi.
+5. **Section headers group links into meaning** ("Iconic Guest", "Popular Episodes", "Follow Me on Social", "Shop my favs!"). Grouping beats a flat wall of 8 buttons. → Ours, in Spanish: Último Video / Nuestras Guías / Quédate con Nosotros / Lo Que Usamos / Escríbenos.
 6. **Link buttons: full-width, rounded, icon left, label centered, optional subtitle.** Kelsey's subtitles carry social proof ("466.7K followers"). Big tap targets, consistent height — mobile-first, since nearly all traffic is an Instagram bio tap.
 7. **Card personality comes from border/shadow.** Linktree = thick black border + hard drop shadow; Ziwe = offset pink shadow. Cheap, high-impact styling.
 8. **Horizontal carousels for multiple items.** Ziwe's "Popular Episodes" scrolls sideways with the next card peeking — shows 4–5 videos without a long page.
@@ -43,6 +44,16 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q8 — Site language — RESOLVED (Spanish)
+- Asked: What language is the site in? Claude recommended English-primary with Spanish flourishes, but flagged it was guessing at the audience split and asked how Spanish-speaking the real following is.
+- Captured:
+  - **User: "no do it in spanish is our main audience now."** Claude's English recommendation was WRONG — overridden.
+  - Site is **Spanish**: all copy, section headers, button labels, taglines.
+  - The word "now" matters: the audience mix may shift (Sanna's Nordic following, international Airbnb guests). So build with all UI strings in a single strings file — adding a language later should be a data change, not a rebuild.
+  - Spanish section headers to use: Último Video / Nuestras Guías / Quédate con Nosotros / Lo Que Usamos / Escríbenos.
+- Flags:
+  - Does Sanna's page also go Spanish, given her Faroese/Nordic followers? -> ASKED NEXT
+
 ### Q7 — Chooser landing page — RESOLVED (dropped)
 - Asked: Is the chooser worth it? Each of you will put your OWN deep link in your OWN bio, so followers land directly on `/felo` or `/sanna` and almost nobody ever sees the chooser — meanwhile the few who do hit it face a door before any content.
 - Captured:
