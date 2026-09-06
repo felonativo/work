@@ -58,11 +58,20 @@ What this changes:
 
 (Follower counts recorded as background only — they are NOT displayed on the site, per Q5.)
 
-## Taglines (rebuilt from their own bios)
+## Taglines — DECIDED / pending
 
-**Root / couple page**
-- es: **Un venezolano y una vikinga — nuestra historia entre dos culturas**
-- en: **A Venezuelan and a Viking — our story between two cultures**
+**Root / couple page — ✅ FINAL (Q17, option G)**
+- es: **Dos culturas explorando el mundo**
+- en: **Two cultures exploring the world**
+
+**Personal pages — pending confirmation (Claude's recommendation):**
+- `/felo` — es: *Nativo venezolano. Casado con una vikinga.* / en: *Venezuelan native. Married to a Viking.*
+- `/sanna` — es: *Vikinga en el Caribe* / en: *Viking in the Caribbean*
+
+Rationale: the root sells the joint proposition; the personal pages carry the personality and the hook.
+
+### Earlier identity-first drafts (superseded for root, kept for reference)
+- root (old): es *Un venezolano y una vikinga — nuestra historia entre dos culturas* / en *A Venezuelan and a Viking — our story between two cultures*
 
 **`/felo`**
 - es: **Nativo venezolano. Casado con una vikinga.**
@@ -183,6 +192,17 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q17 — Root tagline — DECIDED (option G)
+- Asked: which generic/commercial option for the couple?
+- Captured:
+  - **User picked G.** Root tagline is:
+    - es: **Dos culturas explorando el mundo**
+    - en: **Two cultures exploring the world**
+  - Good fit for the brief: it sells (names what they do — exploring/travel) while keeping the two-cultures hook that is unique to them. Claude had recommended A ("Viajes, naturaleza y vida off-grid"); G is the bridge option and keeps more brand.
+  - Still open: the two personal page taglines.
+- Flags:
+  - `/felo` and `/sanna` taglines -> ASKED NEXT
+
 ### Q16 — Tagline should be generic + commercial ("que ayude a vendernos")
 - Asked: (user request) more generic options for the couple description, aimed at selling themselves. Short.
 - Captured:
