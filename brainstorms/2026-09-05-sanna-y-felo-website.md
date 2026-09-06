@@ -208,12 +208,13 @@ Red comes straight off the wall in their portraits; turquoise and gold come off 
 - **Video card** — 16:9 thumbnail, rounded; play badge centred (red circle, cream triangle); title below at 15px; `YouTube · Sanna y Felo` at 12px muted. The whole card is one link out to YouTube.
 - **Contact** — full-width, mail icon left, label centred, opens `mailto:`.
 
-### The stay box — the special one
-The card is drawn as a **house**, not a rectangle:
-- A **pitched roof** sits on top, slightly wider than the card, with a small overhang — in Faroese red.
-- **The roof is turf.** Faroese houses have grass roofs — you can see them in the banner photo. A green turf roof on a red house is unmistakably Faroese, sitting on top of a card about a Panamanian house. That is the "dos culturas" joke told in a single component, and it costs nothing to draw.
-- Card body: photo of the stay, name, one line of copy, and the only place on the site where the words "off-grid" appear (per the Q19 voice rule).
-- **The "dynamic" part:** on hover/tap a warm light comes on in a window — a soft gold glow. Cheap, charming, and it makes the box feel like a place rather than a link.
+### The stay box — the special one (REVISED at Q26)
+The card is drawn as **the actual cabin**, illustrated — no photograph inside it (user's explicit instruction: the box should tell you what you'll find *after* the click).
+- **Curved arch silhouette**, taken from the real house — like an upturned boat hull. Not a rectangle, not a triangle. That shape alone says "house", and says "*this* house".
+- Warm honey wood tones against the jungle-green page, so it is the warmest thing on screen. Thatch along the roof edge, stone pillars and deck below, jungle leaves crowding the edges.
+- Copy only: name, one line, and the single permitted use of "off-grid" (Q19 voice rule).
+- **Dynamic moment:** the patterned windows light up warm gold on hover/tap — the real cabin has organic stained-glass-style windows, so the effect is drawn from life.
+- ⚠️ The earlier Faroese turf-roof idea is dropped — see Q26 for why.
 
 ### Motion
 - Banner fades in 600ms ease-out.
@@ -286,6 +287,25 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q26 — The real tiny house; the turf-roof idea is WRONG and is dropped
+- Captured:
+  - User sent a photo of the actual tiny house and gave a clear instruction: **do NOT put a photo of the house inside the box.** Instead, "que la caja dé a entender que es una casa lo que se va a encontrar cuando haga click." The box must *be* a house, illustrated — the photo lives on the other side of the click.
+  - He also reminded that his **Higgsfield account is connected**, so illustrations/OG cards can be generated rather than sourced.
+  - **What the real house actually looks like:** warm honey-toned wood; a distinctive **curved / arched roof** like an upturned boat hull — NOT a pitched A-frame; thatch and palm at the roof edges; raised on stone-and-river-rock pillars; wooden deck and steps; windows with organic stained-glass-style patterns in greens; deep jungle and banana leaves all around; an open-sided rancho beside it.
+
+### ❌ Correction: the Faroese turf roof is dropped
+Claude proposed a pitched roof covered in Faroese turf — a green grass roof on a red house — as a "dos culturas" joke on the stay box. **That was wrong, on two counts:**
+1. **It misrepresents the product.** The user's whole instruction is that the box should tell you what you'll find on the other side of the click. A Faroese turf roof promises a Nordic house and delivers a Panamanian jungle cabin. The joke would work against the box's only job.
+2. **The real silhouette is better anyway.** The actual house has a curved arched roof — far more distinctive and memorable than a triangle, and unmistakably *this* house rather than a generic house icon.
+
+### Stay box — REVISED design
+- The card takes the **silhouette of the real cabin: a curved arch top**, not a rectangle and not a triangle. That shape alone reads "house" instantly and reads "*this* house" to anyone who has seen it.
+- Illustrated in warm honey wood tones drawn from the photo, against the site's jungle green — so it glows out of the page as the warmest thing on it.
+- Thatch texture along the roof edge; the cabin sits on its little stone pillars with the deck and steps below.
+- Jungle leaf silhouettes crowding the edges, echoing the banana leaves in the photo.
+- **The "dynamic" moment, revised:** the house's patterned windows light up warm gold on hover/tap — the real house has beautiful organic stained-glass windows, so this is drawn from life rather than invented.
+- New palette additions sampled from the house photo: honey wood `#B98A4B`, jungle leaf `#7FBF3F`, deep shade green.
+
 ### Q25 — Photos delivered; emails + Sanna confirmed; design spec requested
 - Captured:
   - ✅ **Emails confirmed** as assumed: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, root → both.
@@ -575,7 +595,8 @@ User sent a photo of the two of them in Faroese national dress, walking, with a 
 ## Open items — what's still needed
 
 **Blocking the build**
-1. **Image files.** All three images have been shown but not supplied as files — banner, Felo portrait, Sanna portrait. Also still needed: a photo of the stay itself, for the house box.
+1. **Image files.** Shown as previews but not supplied as files: banner, Felo portrait, Sanna portrait, tiny-house photo. (The house photo is for the *linked* page/reference, not for inside the box.)
+   - Note: the user's **Higgsfield account is connected**, so the cabin illustration and the OG cards can be generated rather than sourced.
 2. **Domain `sannayfelo.com`** — register it at Hostinger (check availability first).
 
 **Resolved**
