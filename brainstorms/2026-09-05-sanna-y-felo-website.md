@@ -240,10 +240,11 @@ Every page is mobile-first — nearly all traffic is a thumb tapping an Instagra
 **Shared bottom** (same on every page, one data file)
 1. **Último Video · Latest Video** — rich card: 16:9 thumbnail, play overlay, title, channel name. ONE video, auto-pulled from the joint channel's RSS via the PHP script. No subscriber count.
    - **The card is a LINK, not a player (Q24).** Clicking opens YouTube. No embedded iframe, no autoplay — it keeps the page fast and sends real, engaged traffic to the channel where subscribes and watch time actually land.
-2. **Quédate con Nosotros · Stay With Us** — the off-grid stay. The BIGGEST, most distinctive box on the page: styled as the tiny house itself, little roof on top, something "dynamic". Not shaped like the other boxes.
-3. **Nuestras Guías · Our Guides** — OFF (no content yet)
-4. **Lo Que Usamos · What We Use** — affiliate. OFF (no content yet)
-5. **Escríbenos · Say Hi** — opens email. Per-page address (Felo's / Sanna's). No WhatsApp.
+2. **Por Venezuela · For Venezuela** — GoFundMe donation link (`https://gofund.me/4f6bb1f0c`). Tricolour ribbon down the left edge, the flag's eight-star arc above the label, stars lighting one by one on tap. Copy pending the cause description.
+3. **Quédate con Nosotros · Stay With Us** — the off-grid stay. The BIGGEST, most distinctive box on the page: styled as the tiny house itself, little roof on top, something "dynamic". Not shaped like the other boxes.
+4. **Nuestras Guías · Our Guides** — OFF (no content yet)
+5. **Lo Que Usamos · What We Use** — affiliate. OFF (no content yet)
+6. **Escríbenos · Say Hi** — opens email. Per-page address (Felo's / Sanna's). No WhatsApp.
 
 **Order rationale (Q13):** video first, stay second. A visitor arriving from a reel is in "who are these two?" mode, not "book a trip" mode — the video is the low-commitment next step they came for. The stay converts them on the way down, which is why it's second but visually dominant.
 
@@ -287,6 +288,26 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q27 — NEW BOX: Venezuela donations, above the stay
+- Captured:
+  - New section requested: **donations for Venezuela**, link `https://gofund.me/4f6bb1f0c`, placed **before** the stay box.
+  - User asked for creative use of the Venezuelan flag colours.
+  - **Revised page order:** 1) Último Video · 2) **Donaciones Venezuela** · 3) La casa (stay) · 4) Guías (off) · 5) Afiliados (off) · 6) Contacto.
+  - Note on the ordering, recorded not argued: putting a donation ask above the flagship money-maker is a values call, not an optimisation one. Two consecutive asks (give, then book) is a lot in a row, but the emotional registers are different enough that it should hold. His call, respected.
+  - **Design (proposed):** the card keeps the site's green surface so the honey-wood house box stays the only fully distinct shape. The flag arrives as:
+    - a **vertical tricolour ribbon** (yellow → blue → red) down the left edge of the card;
+    - the **arc of eight white stars** from the flag's blue band, arcing above the label — the most recognisable and most emotional element of the flag;
+    - a soft diagonal sweep of warm light across the card, like a flag catching the sun.
+    - **Dynamic beat:** on tap the eight stars light up one by one, left to right. Reads as hope, and it is the kind of small thing people screenshot.
+  - ⚠️ **Copy is blocked on a fact Claude does not have: what the campaign actually funds.** Claude cannot reach the GoFundMe (network egress is restricted here) and must not invent claims about what a real fundraiser does. User must supply the cause in one line.
+- Flags:
+  - What does the GoFundMe fund, in one line (es + en)? -> user, BLOCKING this box's copy
+
+### Q27b — The image files: Claude can see them but cannot save them
+- The images arrive in the conversation as visual content, but the files were not written to disk this session (only the four original Linktree screenshots were). So Claude can look at them and design from them, but cannot copy them into the project.
+- **Workarounds offered:** (1) put them in the user's Google Drive — the Drive connector is attached, so Claude can pull them from there; (2) upload straight into Hostinger's file manager once the hosting is live, and reference them by URL; (3) commit them to the GitHub repo.
+- Higgsfield is connected and can generate the cabin illustration, the star motif and the OG cards — but NOT the real photographs of them, which must be their own.
+
 ### Q26 — The real tiny house; the turf-roof idea is WRONG and is dropped
 - Captured:
   - User sent a photo of the actual tiny house and gave a clear instruction: **do NOT put a photo of the house inside the box.** Instead, "que la caja dé a entender que es una casa lo que se va a encontrar cuando haga click." The box must *be* a house, illustrated — the photo lives on the other side of the click.
