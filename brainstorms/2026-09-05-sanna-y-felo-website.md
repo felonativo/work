@@ -64,11 +64,9 @@ What this changes:
 - es: **Dos culturas explorando el mundo**
 - en: **Two cultures exploring the world**
 
-**Personal pages — pending confirmation (Claude's recommendation):**
-- `/felo` — es: *Nativo venezolano. Casado con una vikinga.* / en: *Venezuelan native. Married to a Viking.*
-- `/sanna` — es: *Vikinga en el Caribe* / en: *Viking in the Caribbean*
-
-Rationale: the root sells the joint proposition; the personal pages carry the personality and the hook.
+**Personal pages — must ALSO be commercial (Q18), pending final pick.**
+Claude's picks: `/felo` = Viajes, naturaleza y vida off-grid · `/sanna` = Viajes, cultura y vida entre dos mundos.
+Each gets a *different* commercial angle so the three pages don't blur — Felo owns nature/off-grid, Sanna owns culture/two-worlds. Full options below.
 
 ### Earlier identity-first drafts (superseded, kept for reference)
 - root: es *Un venezolano y una vikinga — nuestra historia entre dos culturas* / en *A Venezuelan and a Viking — our story between two cultures*
@@ -121,6 +119,26 @@ The tagline's job here is to sell: a brand, sponsor or guest should know the nic
 **Claude's pick: A.** Three words name the whole business — travel, nature, off-grid — and it works equally for a sponsor, an Airbnb guest and a new follower. It also stays true as the content evolves.
 
 **Note the trade-off:** generic sells, but "un venezolano y una vikinga" is the hook nobody else on earth has. The resolution is that the design carries the identity (flags, split header, photos) while the tagline does the commercial work — so neither is lost.
+
+### Commercial options for the personal pages (Q18)
+
+**`/felo`** — angle: nature, off-grid, the tropics (he owns the house + coral project)
+| # | es | en |
+|---|---|---|
+| 1 | Viajes, naturaleza y vida off-grid | Travel, nature and off-grid living |
+| 2 | Explorando el trópico y la vida off-grid | Exploring the tropics and off-grid living |
+| 3 | Naturaleza, aventura y vida simple | Nature, adventure and simple living |
+| 4 | Viajes y vida off-grid en el trópico | Travel and off-grid living in the tropics |
+
+**`/sanna`** — angle: culture, the move between two worlds
+| # | es | en |
+|---|---|---|
+| 1 | Viajes, cultura y vida entre dos mundos | Travel, culture and life between two worlds |
+| 2 | Explorando el mundo entre dos culturas | Exploring the world between two cultures |
+| 3 | Viajes, naturaleza y nuevas culturas | Travel, nature and new cultures |
+| 4 | Del norte al trópico, explorando el mundo | From the north to the tropics, exploring the world |
+
+**Claude's picks: felo #1, sanna #1.** They stay commercial, match the root's register, and each claims a different territory so the pages read as distinct.
 
 ## Page spec (as decided so far)
 
@@ -183,6 +201,18 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q18 — Personal taglines must also be commercial
+- Asked: keep the personal taglines identity-based (their own bio words)?
+- Captured:
+  - **User: "si los quiero tambien comerciales como el root."** All three taglines are commercial/sellable — no identity-only lines anywhere.
+  - Claude's identity-based recommendation (his IG bio words / "Vikinga en el Caribe") is dropped.
+  - **Risk Claude raised:** with a shared bottom, one joint video and now three similar commercial taglines, the three pages risk blurring into each other — only the photo and name would differ. Mitigation: give each person a DIFFERENT commercial angle rather than the same generic line.
+    - Felo's angle → nature / off-grid / the tropics (he owns the house + coral project)
+    - Sanna's angle → culture / between two worlds / the Nordic-to-tropics move
+  - New commercial option sets for both personal pages written into the Tagline options section.
+- Flags:
+  - Final personal taglines -> user (+ Sanna for hers)
+
 ### Q17 — Root tagline — DECIDED (option G)
 - Asked: which generic/commercial option for the couple?
 - Captured:
