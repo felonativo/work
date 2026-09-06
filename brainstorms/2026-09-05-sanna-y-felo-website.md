@@ -5,7 +5,11 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 
 ## Summary / key decisions
 - **Domain: `sannayfelo.com`** — DECIDED. Spanish "y" (and) ties to Felo's Caribbean side and reads naturally bilingually.
-- **One website, one shared domain**, not two separate sites. A landing/chooser page lets visitors pick Felo or Sanna, routing to that person's own sub-page (`/felo`, `/sanna`). Build Felo's profile first; Sanna's follows the same template.
+- **Three pages, one site — NO chooser gate.**
+  - `/felo` — Felo's page. Goes in Felo's own Instagram/social bios.
+  - `/sanna` — Sanna's page. Goes in Sanna's own bios.
+  - `/` (root) — a real couple page, not a door: both of them in a split jungle/fjord header, then the same shared body. The link for brand deals, press, and anyone typing the bare domain.
+  - No visitor ever has to click before reaching content. Build Felo's page first; Sanna's reuses the template.
 - **Brand story to lean on:** Felo = Caribbean, "jungle man"; Sanna = Faroe Islands, "Viking". The jungle ↔ fjord / warm ↔ cold contrast is the visual and narrative spine of the whole site.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
 - **YouTube is one joint channel** → the same single latest video appears on both pages. One video only, not a carousel.
@@ -36,9 +40,18 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 
 **Linktree-platform-only features we'd have to build or skip:** Verified badge, sticky Subscribe button, the ⋮ share/report menu, auto-fetched follower counts.
 
-**Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the chooser landing page is an asset no Linktree gets: a storytelling moment (split screen, jungle one side / fjord the other, "pick your guide").
+**Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q7 — Chooser landing page — RESOLVED (dropped)
+- Asked: Is the chooser worth it? Each of you will put your OWN deep link in your OWN bio, so followers land directly on `/felo` or `/sanna` and almost nobody ever sees the chooser — meanwhile the few who do hit it face a door before any content.
+- Captured:
+  - **User: "yes good."** Chooser gate is dropped.
+  - Final routes: `/felo` and `/sanna` are the real bio links; `/` (root) becomes a genuine couple page rather than a gate — split jungle-green/fjord-blue header with both of them, then the same shared body.
+  - The split-screen jungle↔fjord visual the user liked survives: it becomes the root page's HEADER instead of a door in front of the site.
+  - Principle worth remembering: every page must stand alone, because most visitors will only ever see one of them.
+- Flags: none
+
 ### Q6 — Shared vs personal content — RESOLVED
 - Asked: Almost everything you described is "our/we" (video, guide, Airbnb, contact) but the architecture is two personal pages. Which is it? And is the YouTube channel joint or one each?
 - Captured:
@@ -48,7 +61,7 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
   - **Airbnb box should be visually special** — "a little bit dynamic," deliberately different from the uniform link boxes. Concept: styled like the tiny house itself, with a little roof on top of the box. Specific design to be worked out later.
 - Flags:
   - Airbnb box detailed design (roof treatment, animation/"dynamic" behavior) -> revisit in a design pass
-  - Consequence surfaced, NOT yet resolved: if the channel is joint AND the bottom is shared, `/felo` and `/sanna` differ only by photo, name, tagline, and personal socials — so is a chooser landing page worth the extra tap? -> ASKED NEXT
+  - (Resolved in Q7: chooser dropped; root becomes a real couple page.)
 
 ### Q5 — Latest-video refresh mechanism — RESOLVED
 - Asked: How should the latest YouTube video stay current — (a) free RSS feed + daily rebuild, (b) serverless function for instant, (c) manual? And do you want subscriber counts (which would require a YouTube API key)?
