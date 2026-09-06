@@ -1,5 +1,5 @@
 # Sanna y Felo — Link-in-bio Website: Brainstorm / Discovery Notes
-Date: 2026-09-05 · Goal: Design a Linktree-style link-in-bio website at **sannayfelo.com** — a couple page at the root plus a standalone page for each of them. **Site language: Spanish.**
+Date: 2026-09-05 · Goal: Design a Linktree-style link-in-bio website at **sannayfelo.com** — a couple page at the root plus a standalone page for each of them. **Bilingual: Spanish + English.**
 
 Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 
@@ -10,7 +10,8 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
   - `/sanna` — Sanna's page. Goes in Sanna's own bios.
   - `/` (root) — a real couple page, not a door: both of them in a split jungle/fjord header, then the same shared body. The link for brand deals, press, and anyone typing the bare domain.
   - No visitor ever has to click before reaching content. Build Felo's page first; Sanna's reuses the template.
-- **Site language: SPANISH.** Spanish-speaking followers are the main audience "now". All UI copy, section headers, buttons and taglines in Spanish. Because the user said "now", keep every UI string in one strings/data file so another language (or a per-page language) can be added later without touching layout.
+- **Site language: BILINGUAL — Spanish + English.** Spanish is the primary/main audience today, English is the second language (Sanna's Nordic following, international Airbnb guests). Every UI string lives in one strings file with an `es` and `en` value.
+  - IMPORTANT distinction: the *chrome* is bilingual (section headers, buttons, taglines, contact copy). The *content* is whatever language it was published in — the YouTube video title comes from the channel, guide names are what they're called. So this is "bilingual interface + native-language content", not a fully translated site.
 - **Brand story to lean on:** Felo = Caribbean, "jungle man"; Sanna = Faroe Islands, "Viking". The jungle ↔ fjord / warm ↔ cold contrast is the visual and narrative spine of the whole site.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
 - **YouTube is one joint channel** → the same single latest video appears on both pages. One video only, not a carousel.
@@ -33,7 +34,7 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 2. **Header stack order is consistent:** banner/wordmark → profile image → name → one-line tagline → social icon row. Ziwe's is almost exactly what Felo described (banner graphic + centered photo).
 3. **Social icons are flat, monochrome, unlabeled, one row.** No boxes or buttons — they inherit a single brand color. 6–8 max before crowding. Linktree's row includes an email icon alongside the socials.
 4. **The YouTube card is the hero, and it's rich — not a plain link.** Both Ziwe and Kelsey show: large 16:9 thumbnail + play overlay, video title, channel name, metadata (subscriber count, "2 weeks ago"), and an embedded Subscribe button. Far more compelling than a text link. NOTE: Linktree auto-fetches this; on a custom site it's a build decision.
-5. **Section headers group links into meaning** ("Iconic Guest", "Popular Episodes", "Follow Me on Social", "Shop my favs!"). Grouping beats a flat wall of 8 buttons. → Ours, in Spanish: Último Video / Nuestras Guías / Quédate con Nosotros / Lo Que Usamos / Escríbenos.
+5. **Section headers group links into meaning** ("Iconic Guest", "Popular Episodes", "Follow Me on Social", "Shop my favs!"). Grouping beats a flat wall of 8 buttons. → Ours (es / en): Último Video · Latest Video / Nuestras Guías · Our Guides / Quédate con Nosotros · Stay With Us / Lo Que Usamos · What We Use / Escríbenos · Say Hi.
 6. **Link buttons: full-width, rounded, icon left, label centered, optional subtitle.** Kelsey's subtitles carry social proof ("466.7K followers"). Big tap targets, consistent height — mobile-first, since nearly all traffic is an Instagram bio tap.
 7. **Card personality comes from border/shadow.** Linktree = thick black border + hard drop shadow; Ziwe = offset pink shadow. Cheap, high-impact styling.
 8. **Horizontal carousels for multiple items.** Ziwe's "Popular Episodes" scrolls sideways with the next card peeking — shows 4–5 videos without a long page.
@@ -44,6 +45,16 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q9 — Bilingual — RESOLVED (both languages)
+- Asked: Does the Spanish decision include Sanna's page, given her possible Faroese/Nordic following? (Claude recommended all-Spanish for v1, strings kept swappable.)
+- Captured:
+  - **User: "do both languages on it."** Recommendation overridden again — the site is BILINGUAL, Spanish + English, not Spanish-only.
+  - Applies to the whole site, both people's pages and the root couple page — not a per-page language split.
+  - Consequence: every UI string needs an `es` and an `en` value in the strings file. This is a real content task for the user (or Claude drafts and they correct).
+  - Consequence surfaced: only the interface can be reliably bilingual. The YouTube video title comes from the channel in whatever language it was published; guide names and the Airbnb listing are similarly fixed. So: bilingual chrome, native-language content.
+- Flags:
+  - How the language is chosen/switched (toggle vs auto-detect vs both shown at once) -> ASKED NEXT
+
 ### Q8 — Site language — RESOLVED (Spanish)
 - Asked: What language is the site in? Claude recommended English-primary with Spanish flourishes, but flagged it was guessing at the audience split and asked how Spanish-speaking the real following is.
 - Captured:
