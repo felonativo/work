@@ -11,6 +11,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
   - `/` (root) — a real couple page, not a door: both of them in a split jungle/fjord header, then the same shared body. The link for brand deals, press, and anyone typing the bare domain.
   - No visitor ever has to click before reaching content. Build Felo's page first; Sanna's reuses the template.
 - **Site language: BILINGUAL — Spanish + English.** Spanish is the primary/main audience today, English is the second language (Sanna's Nordic following, international Airbnb guests). Every UI string lives in one strings file with an `es` and `en` value.
+  - Language chosen by a small `ES | EN` toggle top-right: auto-detect on first visit (default Spanish), user can override, choice remembered.
   - IMPORTANT distinction: the *chrome* is bilingual (section headers, buttons, taglines, contact copy). The *content* is whatever language it was published in — the YouTube video title comes from the channel, guide names are what they're called. So this is "bilingual interface + native-language content", not a fully translated site.
 - **Brand story to lean on:** Felo = Caribbean, "jungle man"; Sanna = Faroe Islands, "Viking". The jungle ↔ fjord / warm ↔ cold contrast is the visual and narrative spine of the whole site.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
@@ -45,6 +46,16 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q10 — Language switching — RESOLVED (option a)
+- Asked: toggle w/ auto-detect (a), both languages shown at once (b), or auto-detect only (c)?
+- Captured:
+  - **User picked (a).** A small `ES | EN` toggle, top-right.
+  - Behaviour: auto-detect from the browser/phone language on first visit, defaulting to **Spanish** when unclear; the visitor can override with the toggle; the choice is remembered (localStorage) for return visits.
+  - Rejected (b) — doubling every label bloats a page whose job is to be scanned in ~3 seconds.
+  - Rejected (c) — auto-detect alone strands people whose phone language isn't the language they read (common among expats/immigrants, a real slice of this audience).
+  - Layout note: toggle sits in the top corner, small, and must not compete with or push down the profile photo.
+- Flags: none
+
 ### Q9 — Bilingual — RESOLVED (both languages)
 - Asked: Does the Spanish decision include Sanna's page, given her possible Faroese/Nordic following? (Claude recommended all-Spanish for v1, strings kept swappable.)
 - Captured:
