@@ -288,6 +288,33 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q28 — Drive folder located; asset transfer + weight problem; GoFundMe cause given
+- **Google Drive folder found and listed** (`1nFcdKPpFhn4jGfa2CNF0vWSfstShrpbJ`, owner nativofelo@gmail.com). Four files:
+
+| file | type | size | Drive id |
+|---|---|---|---|
+| `felo 768x1025.jpg` | JPEG | 114 KB | `1E5ktJdWgRkqUV_OGZrJ5CSRfCZKvbLY5` |
+| `sanna 768x1025.jpg` | JPEG | 137 KB | `1nnD8FRlI9dKoRjoIYanmaPnN1zfIj4qV` |
+| `background banner felo y sanna.png` | PNG | **4.5 MB** | `10AeIn1I7Zz29gXxDtgl32ycSqITYrC6b` |
+| `foto link s y f.png` | PNG | **2.0 MB** | `1f6bwtN82RZY0r-j933RxfxbvykcXt3UA` |
+
+- **Could not download them into the project.** Direct download from `drive.google.com` is blocked by this environment's network egress policy, and the Drive connector returns files as base64 *through the conversation* — workable for a tiny file, hopeless for a 4.5 MB PNG.
+- **BIGGER ISSUE than the transfer: those files are far too heavy for this site.** A 4.5 MB banner on a page whose entire premise is opening instantly from an Instagram bio is a serious problem — many seconds on mobile data. Whatever route they take, the first build step is compression:
+  - banner -> WebP, ~200 KB, max 1600px wide
+  - portraits -> WebP, ~40 KB each (they only ever render inside a 120px circle, so 240px covers retina; the 768x1025 originals are already generous)
+  - Target: whole page under ~500 KB.
+- **Best transfer route: upload them to the GitHub repo** (`felonativo/work`) via GitHub's web drag-and-drop. They land exactly where the build happens, at zero conversation cost. Hostinger's file manager works too, once hosting is live.
+- **No tiny-house photo in the folder** — not blocking, since the stay box is illustrated (Q26), but it will be wanted for the linked page.
+
+### GoFundMe cause — supplied by the user
+- URL: `https://www.gofundme.com/f/emergency-relief-for-venezuela-earthquake-victims`
+- Campaign title, per the user's own link: **"Emergency Relief for Venezuela Earthquake Victims."**
+- Claude could NOT open the page — gofundme.com is also blocked by the egress proxy. So the campaign's own title is the only verified fact available. **Copy must stick to that and claim nothing further** — no amounts, no goals, no description of the relief work, nothing about the earthquake itself. Anything more must come from the user in his own words.
+- Proposed box copy, deliberately minimal:
+  - Section header — es: **Por Venezuela** / en: **For Venezuela**
+  - Label — es: **Ayuda a los damnificados del terremoto** / en: **Help earthquake victims**
+  - Sub-line — es: *Donaciones vía GoFundMe* / en: *Donate via GoFundMe*
+
 ### Q27 — NEW BOX: Venezuela donations, above the stay
 - Captured:
   - New section requested: **donations for Venezuela**, link `https://gofund.me/4f6bb1f0c`, placed **before** the stay box.
@@ -616,8 +643,8 @@ User sent a photo of the two of them in Faroese national dress, walking, with a 
 ## Open items — what's still needed
 
 **Blocking the build**
-1. **Image files.** Shown as previews but not supplied as files: banner, Felo portrait, Sanna portrait, tiny-house photo. (The house photo is for the *linked* page/reference, not for inside the box.)
-   - Note: the user's **Higgsfield account is connected**, so the cabin illustration and the OG cards can be generated rather than sourced.
+1. **Image files** — located in Drive but not transferable from here (see Q28). User to upload them to the GitHub repo or Hostinger. All four need compressing before use; the 4.5 MB banner especially.
+   - The user's **Higgsfield account is connected**, so the cabin illustration, the eight-star motif and the OG cards can be generated rather than sourced.
 2. **Domain `sannayfelo.com`** — register it at Hostinger (check availability first).
 
 **Resolved**
