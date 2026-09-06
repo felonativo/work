@@ -16,7 +16,7 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - **Brand story to lean on:** Felo = **Venezuelan** ("Nativo Venezolano", 🇻🇪; "jungle man" is his casual framing, good for the visuals); Sanna = Faroe Islands ("vikinga", 🇫🇴). Their own public line is *"nuestra historia entre dos culturas" / "our story between two cultures"* — that IS the brand. Jungle ↔ fjord / warm ↔ cold is its visual spine.
 - **Page anatomy: personal top + shared bottom.** Personal header (own photo, name, tagline, own socials) sits above a shared body (latest video, guides, Airbnb, contact) driven by one shared data file. Edit a link once → updates on both pages.
 - **YouTube is one joint channel** → the same single latest video appears on both pages. One video only, not a carousel.
-- **The Airbnb box is deliberately not like the other link boxes** — styled as the tiny house itself, with a little roof on top, and something "dynamic". Detailed design TBD.
+- **The stay box is deliberately not like the other link boxes** — it is drawn as the real cabin: a **curved arch silhouette** in warm honey wood, illustrated (no photo inside), with the windows lighting up on tap. Design settled at Q26.
 - Purpose: a single bio-link page to drop in Instagram/YouTube/social profiles
 - Visual style: green palette, adventurous/travel vibe; fade-in hero banner; circular profile photo centered at top of each profile page
 - Top of each profile page: row of social media icons linking out to all their profiles
