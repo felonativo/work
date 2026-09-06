@@ -79,8 +79,8 @@ return [
       'enabled' => true,
       'url'     => 'https://caribbeancoralrestorationlanding.vercel.app/',
       'label'   => [
-        'es' => 'Nuestra casa off-grid en Bocas del Toro',
-        'en' => 'Our off-grid house in Bocas del Toro',
+        'es' => 'Casita Off Grid en Bocas del Toro',
+        'en' => 'Off Grid Cabin in Bocas del Toro',
       ],
       'note'    => [
         'es' => 'Panamá · restauración de coral',

@@ -288,6 +288,14 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q30 — Process correction + three fixes
+- **Process:** user pulled Claude up for building without an explicit go-ahead. Fair — he answered "2" to a tagline question and Claude read it as approval to build the whole site. **Rule from here: confirm before building.**
+- **Three fixes, applied as instructed:**
+  1. **Seven stars, not eight**, on the Venezuela box. (The flag carried 7 until 2006; many Venezuelans use 7 deliberately. His flag, his call — applied without comment.)
+  2. Stay box label: **"Casita Off Grid en Bocas del Toro"** / "Off Grid Cabin in Bocas del Toro" — replaces "Nuestra casa off-grid…".
+  3. **No flag emoji beside the names** on any page. Removed from both the couple page and the personal headers.
+- **Image transfer, resolved:** confirmed again that the photos do not reach the container from the conversation (only the four original screenshots ever did). Given him a direct GitHub upload URL into `site/assets/img` on this branch. **He uploads the originals as-is — no compressing, no renaming.** Claude converts to WebP, compresses and renames (Pillow is installed in the container), which takes the squoosh step off his plate entirely.
+
 ### Q29 — Venezuela copy FINAL; assets unblocked; BUILD STARTED
 - **Venezuela box copy — ✅ FINAL (option 2):** es **"Ayuda a las víctimas del terremoto"** / en **"Help the earthquake victims"**. One line, direct, states the cause. Links to `https://gofund.me/4f6bb1f0c`.
 - **Asset blocker dissolved.** Realisation: the build does not need the image bytes at all — only agreed filenames and paths. The site is coded against `/assets/img/felo.webp`, `sanna.webp`, `banner.webp`; the user drops the compressed files there on Hostinger. Re-sharing the Drive link with `?usp=sharing` did not help and was never the issue — the block is this environment's egress policy, not permissions (the connector could already list his folder).

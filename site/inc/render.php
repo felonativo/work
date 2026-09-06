@@ -35,7 +35,7 @@ function social_row(array $socials, string $who): string {
 }
 
 /** The eight stars of the flag, on an arc. */
-function star_arc(int $count = 8): string {
+function star_arc(int $count = 7): string {
     $svg = '<svg class="stars" viewBox="0 0 200 40" aria-hidden="true">';
     $svg .= '<defs><symbol id="star" viewBox="0 0 10 10">'
           . '<path d="M5 0l1.4 3.2L10 3.7 7.4 6l.7 3.6L5 7.9 1.9 9.6 2.6 6 0 3.7l3.6-.5z"/>'
@@ -131,7 +131,7 @@ function render_page(array $cfg, array $str, string $variant): string {
             <a class="avatar" href="/<?= e($slug) ?>/" data-track="profile:<?= e($slug) ?>">
               <img src="<?= e($p['photo']) ?>" alt="<?= e($p['name']) ?>" width="240" height="240" loading="eager">
             </a>
-            <p class="who-name"><?= e($p['name']) ?> <span class="flag"><?= $p['flag'] ?></span></p>
+            <p class="who-name"><?= e($p['name']) ?></p>
             <?= social_row($p['socials'], $p['name']) ?>
           </div>
         <?php endforeach; ?>
@@ -146,7 +146,7 @@ function render_page(array $cfg, array $str, string $variant): string {
           </span>
         </div>
       </div>
-      <h1 class="name"><?= e($subject['name']) ?> <span class="flag"><?= $subject['flag'] ?></span></h1>
+      <h1 class="name"><?= e($subject['name']) ?></h1>
       <?= t($subject['tagline'], 'p', 'tagline') ?>
       <?= social_row($subject['socials'], $subject['name']) ?>
     <?php endif; ?>
