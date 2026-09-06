@@ -21,12 +21,32 @@ Handles: **@feloferoe** (Felo) · **Sanna La Vida** (Sanna)
 - Visual style: green palette, adventurous/travel vibe; fade-in hero banner; circular profile photo centered at top of each profile page
 - Top of each profile page: row of social media icons linking out to all their profiles
 - Featured/hero section: latest YouTube video, shown with its thumbnail
-- Planned/future link: a Faroe Islands travel guide (not built yet — placeholder for now)
-- A monetization section: an affiliate link
+- **Faroe Islands guide and affiliate link do not exist yet** — both sections are built into the template but ship switched OFF in the data file. No "coming soon" boxes.
 - A section for their Airbnb property in Bocas del Toro
 - A "contact us" box — clicking it opens email (NOT WhatsApp — explicitly excluded, no WhatsApp yet)
 - Tech approach: static site, multiple routes. Latest video auto-pulled from YouTube's free RSS feed via a daily scheduled rebuild — no API key, no manual updates.
 - **No follower/subscriber counts anywhere** (user: "skip the counts").
+
+## Content inventory (confirmed by user, Q11)
+
+| Item | Owner | URL / value | Status |
+|---|---|---|---|
+| Instagram | Felo | https://www.instagram.com/feloferoe/ | LIVE |
+| Instagram | Sanna | https://www.instagram.com/sannalavida | LIVE |
+| TikTok | Felo | https://www.tiktok.com/@feloferoe | LIVE |
+| TikTok | Sanna | https://www.tiktok.com/@sannalavida | LIVE |
+| YouTube | **JOINT** | https://www.youtube.com/@SannaFelo | LIVE |
+| Email | Felo | feloferoe@gmail.com | LIVE |
+| Email | Sanna | sannalavida@gmail.com | LIVE |
+| Airbnb / the stay | shared | https://caribbeancoralrestorationlanding.vercel.app/ | LIVE — but see flag below |
+| Faroe Islands guide | shared | — | **DOES NOT EXIST** → section built but switched off |
+| Affiliate link | shared | — | **DOES NOT EXIST** → section built but switched off |
+
+Notes:
+- Social set is small and clean: **Instagram, TikTok, YouTube** only. No Facebook / X / Pinterest. That's 3 icons (+ optionally an email icon, as in the Linktree reference).
+- The YouTube handle is `@SannaFelo` — the channel is branded to both of them, confirming the joint-channel decision.
+- TECHNICAL: YouTube's RSS feed needs a `channel_id` (`UC…`), not the `@handle`. Must resolve the handle to its channel ID once, then hardcode it in the data file.
+- **CORRECTION to the "shared bottom" model (Q6):** contact is NOT shared — there are two different emails. Contact is personal. Working assumption: `/felo` → feloferoe@gmail.com, `/sanna` → sannalavida@gmail.com, and the root couple page offers both (or a chosen primary). User to correct if wrong.
 
 ## Design language (extracted from user's 4 reference screenshots)
 References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyrose (beige). Patterns worth copying:
@@ -46,6 +66,17 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 **Where we should beat these examples:** all four bury the person's identity — you land on a wall of buttons. Felo & Sanna have a genuinely good story, and the split jungle/fjord header (on the root couple page) is a storytelling moment no Linktree gets. NOTE: originally conceived as a "pick your guide" chooser gate; dropped in Q7 — the visual survives as a page header, not a door.
 
 ## Q&A log
+### Q11 — What exists today vs aspirational — RESOLVED
+- Asked: which of the six content items has a real URL right now? (Claude recommended shipping only real things, building the rest but switching them off in the data file rather than showing "coming soon" boxes.)
+- Captured:
+  - Handles, YouTube channel, the Airbnb page and the emails: **all real** — full list recorded in the Content inventory section above.
+  - **Faroe Islands guide: does not exist.** **Affiliate link: does not exist.** Both sections get built into the template but ship switched OFF (`enabled: false`); flipping one line turns them on later. No "coming soon" boxes — they make a page look abandoned, and it would sit in the Instagram bio rotting.
+  - Two separate emails surfaced a modelling error: the contact box can't be shared. See correction note in the Content inventory.
+- Flags:
+  - The "Airbnb" URL is `caribbeancoralrestorationlanding.vercel.app` — that reads like a **coral restoration project**, not a tiny-house rental listing. Need to know what this actually is. -> ASKED NEXT
+  - Confirm the per-page email routing (and what the root couple page uses) -> user
+  - Resolve `@SannaFelo` to its `UC…` channel ID for the RSS feed -> Claude, at build time
+
 ### Q10 — Language switching — RESOLVED (option a)
 - Asked: toggle w/ auto-detect (a), both languages shown at once (b), or auto-detect only (c)?
 - Captured:
