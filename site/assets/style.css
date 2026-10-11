@@ -612,3 +612,16 @@ a.avatar:hover { transform: translateY(-3px); }
 }
 .nl-guide[hidden] { display: none; }
 .nl-guide:hover { background: var(--accent-lo); }
+
+/* The newsletter box is a light "paper" card even on the dark home page. */
+[data-theme="jungle"] .card.news {
+  --text: #14392A;
+  --muted: #6B8577;
+  background: #F8F2E7;
+  border-color: var(--sea);
+  color: var(--text);
+}
+[data-theme="jungle"] .card.news:hover { background: #FFFDF8; }
+[data-theme="jungle"] .card.news .nl-input { background: #fff; border-color: #D9CCB5; }
+[data-theme="jungle"] .card.news .nl-msg.good { color: #2E6B4F; }
+[data-theme="jungle"] .card.news .nl-msg.bad  { color: #A02025; }

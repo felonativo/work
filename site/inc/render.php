@@ -112,14 +112,14 @@ function render_page(array $cfg, array $str, string $variant): string {
 
     ob_start(); ?>
 <!doctype html>
-<html lang="es" data-variant="<?= e($variant) ?>" data-theme="<?= $isCouple ? 'jungle' : 'sand' ?>">
+<html lang="es" data-variant="<?= e($variant) ?>" data-theme="<?= ($isCouple && !$isNews) ? 'jungle' : 'sand' ?>">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title><?= e($title) ?></title>
 <meta name="description" content="<?= e($desc) ?>">
 <link rel="canonical" href="<?= e($canon) ?>">
-<meta name="theme-color" content="<?= $isCouple ? '#0E2A1F' : '#EDE4D4' ?>">
+<meta name="theme-color" content="<?= ($isCouple && !$isNews) ? '#0E2A1F' : '#EDE4D4' ?>">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
@@ -150,7 +150,7 @@ function render_page(array $cfg, array $str, string $variant): string {
 
   <header class="hero">
     <div class="banner">
-      <img src="<?= e($isCouple ? $cfg['couple']['banner'] : $subject['banner']) ?>" alt=""
+      <img src="<?= e($isNews ? $cfg['people']['felo']['banner'] : ($isCouple ? $cfg['couple']['banner'] : $subject['banner'])) ?>" alt=""
            width="1600" height="1200" fetchpriority="high">
       <?php if (!$isCouple): ?>
         <div class="avatars one inset">
