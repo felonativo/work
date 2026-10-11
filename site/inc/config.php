@@ -16,6 +16,9 @@ return [
     'channel_id' => '', // e.g. 'UCxxxxxxxxxxxxxxxxxxxxxx'
   ],
 
+  // Shown right after someone subscribes (the grant from the reel). Change it for the next opportunity.
+  'grant_url' => 'https://arcticdigitalnomads.com/grant/',
+
   // Newsletter → Brevo. The API key itself lives in inc/secrets.php (not in git).
   // Everyone goes into ONE list; in Brevo, name that list "Faroe Islands".
   'newsletter' => [

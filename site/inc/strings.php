@@ -33,6 +33,7 @@ return [
                        'en' => 'Done! Check your inbox (and spam folder) to confirm your subscription.'],
   'news_ok_plain'  => ['es' => '¡Listo! Ya estás en la lista.',
                        'en' => 'Done! You are on the list.'],
+  'news_grant_btn' => ['es' => 'Ver la beca y aplicar →', 'en' => 'See the grant and apply →'],
   'news_bad'       => ['es' => 'Ese correo no parece válido. Revísalo e inténtalo de nuevo.',
                        'en' => 'That email does not look valid. Please check it and try again.'],
   'news_err'       => ['es' => 'Algo falló. Inténtalo de nuevo en unos minutos.',

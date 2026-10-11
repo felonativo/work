@@ -92,6 +92,8 @@
           if (res.j && res.j.ok) {
             say(res.j.mode === 'doi' ? 'ok-doi' : 'ok');
             form.querySelector('.nl-row').hidden = true;
+            var g = form.querySelector('.nl-guide');
+            if (g) g.hidden = false;
           } else {
             say(res.s === 422 ? 'bad' : 'err');
             button.disabled = false;

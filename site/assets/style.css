@@ -599,3 +599,16 @@ a.avatar:hover { transform: translateY(-3px); }
 .nl-list { margin: 0; padding: 0 0 0 20px; display: grid; gap: 8px; font-size: 15px; }
 .nl-list li::marker { color: var(--sea); }
 .nl-privacy { margin: 0 2px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+.nl-guide {
+  display: block;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font: 700 15px/1.2 "DM Sans", sans-serif;
+  text-align: center;
+}
+.nl-guide[hidden] { display: none; }
+.nl-guide:hover { background: var(--accent-lo); }

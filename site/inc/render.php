@@ -75,7 +75,7 @@ function ph(array $pair): string {
 }
 
 /** The signup form. Same markup on every page; app.js submits it to api/subscribe.php. */
-function newsletter_form(array $str): string {
+function newsletter_form(array $str, string $grantUrl): string {
     ob_start(); ?>
 <form class="nl-form" data-nl novalidate>
   <div class="nl-row">
@@ -92,6 +92,8 @@ function newsletter_form(array $str): string {
      data-ok-es="<?= e($str['news_ok_plain']['es']) ?>" data-ok-en="<?= e($str['news_ok_plain']['en']) ?>"
      data-bad-es="<?= e($str['news_bad']['es']) ?>" data-bad-en="<?= e($str['news_bad']['en']) ?>"
      data-err-es="<?= e($str['news_err']['es']) ?>" data-err-en="<?= e($str['news_err']['en']) ?>"></p>
+  <a class="nl-guide" hidden href="<?= e($grantUrl) ?>" target="_blank" rel="noopener" data-track="newsletter:grant"
+     data-es="<?= e($str['news_grant_btn']['es']) ?>" data-en="<?= e($str['news_grant_btn']['en']) ?>"><?= e($str['news_grant_btn']['es']) ?></a>
 </form>
 <?php return ob_get_clean();
 }
@@ -194,7 +196,7 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?php else: ?>
       <div class="card news">
         <span class="card-body">
-          <?= newsletter_form($str) ?>
+          <?= newsletter_form($str, $cfg['grant_url']) ?>
           <?= t($str['news_consent'], 'p', 'nl-consent') ?>
         </span>
       </div>
@@ -247,7 +249,7 @@ function render_page(array $cfg, array $str, string $variant): string {
       <span class="card-body">
         <?= t($str['news_title'], 'span', 'card-label nl-title') ?>
         <?= t($str['news_desc'], 'span', 'card-meta nl-desc') ?>
-        <?= newsletter_form($str) ?>
+        <?= newsletter_form($str, $cfg['grant_url']) ?>
         <?= t($str['news_consent'], 'p', 'nl-consent') ?>
       </span>
     </div>
