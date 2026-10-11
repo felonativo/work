@@ -69,17 +69,44 @@ function cabin_svg(): string {
 SVG;
 }
 
-function render_page(array $cfg, array $str, string $variant): string {
-    $isCouple = ($variant === 'couple');
-    $subject  = $isCouple ? $cfg['couple'] : $cfg['people'][$variant];
-    $video    = yt_latest_video($cfg);
+/** Bilingual placeholder attributes (swapped by app.js). */
+function ph(array $pair): string {
+    return ' placeholder="' . e($pair['es']) . '" data-ph-es="' . e($pair['es']) . '" data-ph-en="' . e($pair['en']) . '"';
+}
 
-    $title = $isCouple
-        ? $str['meta_title']['es']
-        : $subject['name'] . ' — ' . $subject['tagline']['es'];
-    $desc  = $str['meta_desc']['es'];
-    $ogImg = $cfg['base_url'] . '/assets/img/og-' . $variant . '.jpg';
-    $canon = $cfg['base_url'] . ($isCouple ? '/' : '/' . $variant . '/');
+/** The signup form. Same markup on every page; app.js submits it to api/subscribe.php. */
+function newsletter_form(array $str): string {
+    ob_start(); ?>
+<form class="nl-form" data-nl novalidate>
+  <div class="nl-row">
+    <input class="nl-input" type="email" name="email" required autocomplete="email"
+           inputmode="email" maxlength="254"<?= ph($str['news_email']) ?>
+           aria-label="<?= e($str['news_email']['es']) ?>">
+    <button class="nl-btn" type="submit" data-track="newsletter:submit"
+            data-es="<?= e($str['news_button']['es']) ?>" data-en="<?= e($str['news_button']['en']) ?>"
+            data-sending-es="<?= e($str['news_sending']['es']) ?>" data-sending-en="<?= e($str['news_sending']['en']) ?>"><?= e($str['news_button']['es']) ?></button>
+  </div>
+  <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <p class="nl-msg" role="status" aria-live="polite" hidden
+     data-ok-doi-es="<?= e($str['news_ok']['es']) ?>" data-ok-doi-en="<?= e($str['news_ok']['en']) ?>"
+     data-ok-es="<?= e($str['news_ok_plain']['es']) ?>" data-ok-en="<?= e($str['news_ok_plain']['en']) ?>"
+     data-bad-es="<?= e($str['news_bad']['es']) ?>" data-bad-en="<?= e($str['news_bad']['en']) ?>"
+     data-err-es="<?= e($str['news_err']['es']) ?>" data-err-en="<?= e($str['news_err']['en']) ?>"></p>
+</form>
+<?php return ob_get_clean();
+}
+
+function render_page(array $cfg, array $str, string $variant): string {
+    $isNews   = ($variant === 'newsletter');
+    $isCouple = ($variant === 'couple' || $isNews);   // the newsletter page wears the couple theme
+    $subject  = $isCouple ? $cfg['couple'] : $cfg['people'][$variant];
+    $video    = $isNews ? null : yt_latest_video($cfg);
+
+    $title = $isNews ? $str['news_meta_title']['es']
+           : ($isCouple ? $str['meta_title']['es'] : $subject['name'] . ' — ' . $subject['tagline']['es']);
+    $desc  = $isNews ? $str['news_meta_desc']['es'] : $str['meta_desc']['es'];
+    $ogImg = $cfg['base_url'] . '/assets/img/og-' . ($isNews ? 'couple' : $variant) . '.jpg';
+    $canon = $cfg['base_url'] . ($isNews ? '/newsletter/' : ($isCouple ? '/' : '/' . $variant . '/'));
 
     ob_start(); ?>
 <!doctype html>
@@ -135,7 +162,10 @@ function render_page(array $cfg, array $str, string $variant): string {
       <?php endif; ?>
     </div>
 
-    <?php if ($isCouple): ?>
+    <?php if ($isNews): ?>
+      <h1 class="name nl-h1"><?= t($str['news_h1'], 'span') ?></h1>
+      <?= t($str['news_lead'], 'p', 'tagline nl-lead') ?>
+    <?php elseif ($isCouple): ?>
       <div class="avatars">
         <?php foreach (['sanna', 'felo'] as $slug):
           $p = $cfg['people'][$slug]; ?>
@@ -156,6 +186,35 @@ function render_page(array $cfg, array $str, string $variant): string {
       <?= social_row($subject['socials'], $subject['name']) ?>
     <?php endif; ?>
   </header>
+
+  <?php if ($isNews): ?>
+  <section class="block">
+    <?php if (isset($_GET['confirmado'])): ?>
+      <div class="card news"><span class="card-body"><?= t($str['news_confirmed'], 'p', 'nl-confirmed') ?></span></div>
+    <?php else: ?>
+      <div class="card news">
+        <span class="card-body">
+          <?= newsletter_form($str) ?>
+          <?= t($str['news_consent'], 'p', 'nl-consent') ?>
+        </span>
+      </div>
+    <?php endif; ?>
+  </section>
+
+  <section class="block">
+    <?= t($str['news_what_h'], 'h2', 'sec') ?>
+    <ul class="nl-list">
+      <?php foreach (['news_what_1', 'news_what_2', 'news_what_3', 'news_what_4'] as $k): ?>
+        <?= t($str[$k], 'li') ?>
+      <?php endforeach; ?>
+    </ul>
+  </section>
+
+  <section class="block">
+    <?= t($str['news_privacy_h'], 'h2', 'sec') ?>
+    <?= t($str['news_privacy'], 'p', 'nl-privacy') ?>
+  </section>
+  <?php else: ?>
 
   <!-- 1. Latest video -->
   <section class="block">
@@ -179,6 +238,19 @@ function render_page(array $cfg, array $str, string $variant): string {
         <?= t($str['channel_fallback'], 'span', 'card-label') ?>
       </a>
     <?php endif; ?>
+  </section>
+
+  <!-- 2. Newsletter -->
+  <section class="block">
+    <?= t($str['section_news'], 'h2', 'sec') ?>
+    <div class="card news">
+      <span class="card-body">
+        <?= t($str['news_title'], 'span', 'card-label nl-title') ?>
+        <?= t($str['news_desc'], 'span', 'card-meta nl-desc') ?>
+        <?= newsletter_form($str) ?>
+        <?= t($str['news_consent'], 'p', 'nl-consent') ?>
+      </span>
+    </div>
   </section>
 
   <!-- 2. Venezuela -->
@@ -246,8 +318,10 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?php endif; ?>
   </section>
 
+  <?php endif; ?>
+
   <footer class="foot">
-    <?php if (!$isCouple): ?>
+    <?php if (!$isCouple || $isNews): ?>
       <a href="/" data-track="to-couple">sannayfelo.com</a>
     <?php else: ?>
       <span>sannayfelo.com</span>

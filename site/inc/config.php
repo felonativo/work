@@ -16,6 +16,18 @@ return [
     'channel_id' => '', // e.g. 'UCxxxxxxxxxxxxxxxxxxxxxx'
   ],
 
+  // Newsletter → Brevo. The API key itself lives in inc/secrets.php (not in git).
+  // Everyone goes into ONE list; in Brevo, name that list "Faroe Islands".
+  'newsletter' => [
+    'brevo_list_id'   => 0,   // Brevo → Contacts → Lists → the list's numeric ID
+    // Double opt-in: Brevo → Campaigns → Templates → create a "double opt-in"
+    // template containing {{ params.DOIurl }}, then put its numeric ID here.
+    // Leave 0 to add people straight to the list (single opt-in).
+    'doi_template_id' => 0,
+    // Where people land after clicking the confirmation link.
+    'confirm_url'     => 'https://sannayfelo.com/newsletter/?confirmado=1',
+  ],
+
   // Cloudflare Web Analytics token. Leave empty to disable analytics entirely.
   'cf_analytics_token' => '',
 
