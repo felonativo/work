@@ -86,7 +86,7 @@ function newsletter_form(array $str, string $grantUrl): string {
             data-es="<?= e($str['news_button']['es']) ?>" data-en="<?= e($str['news_button']['en']) ?>"
             data-sending-es="<?= e($str['news_sending']['es']) ?>" data-sending-en="<?= e($str['news_sending']['en']) ?>"><?= e($str['news_button']['es']) ?></button>
   </div>
-  <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input class="nl-hp" type="text" name="nl_hp_x9" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore aria-hidden="true">
   <p class="nl-msg" role="status" aria-live="polite" hidden
      data-ok-doi-es="<?= e($str['news_ok']['es']) ?>" data-ok-doi-en="<?= e($str['news_ok']['en']) ?>"
      data-ok-es="<?= e($str['news_ok_plain']['es']) ?>" data-ok-en="<?= e($str['news_ok_plain']['en']) ?>"

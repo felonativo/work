@@ -25,11 +25,18 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') out(405, ['ok' => false, 'err
 $data = json_decode((string) file_get_contents('php://input', false, null, 0, 2048), true);
 if (!is_array($data)) out(400, ['ok' => false, 'error' => 'invalid']);
 
-// Honeypot: real people never fill this hidden field. Pretend success to bots.
-if (!empty($data['website'])) out(200, ['ok' => true, 'mode' => 'doi']);
+// Honeypot: real people never fill this hidden field. Pretend success to bots,
+// but leave a trace so a wrongly-flagged real signup is never invisible.
+if (!empty($data['hp'])) {
+    @file_put_contents(__DIR__ . '/../cache/errors.log',
+        gmdate('c') . "\thoneypot\t" . substr((string) ($data['email'] ?? ''), 0, 80) . "\n", FILE_APPEND | LOCK_EX);
+    out(200, ['ok' => true, 'mode' => 'doi']);
+}
 
 $email = strtolower(trim((string) ($data['email'] ?? '')));
 if (strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    @file_put_contents(__DIR__ . '/../cache/errors.log',
+        gmdate('c') . "\tinvalid-email\t" . substr($email, 0, 80) . "\n", FILE_APPEND | LOCK_EX);
     out(422, ['ok' => false, 'error' => 'invalid']);
 }
 $lang = ($data['lang'] ?? '') === 'en' ? 'en' : 'es';

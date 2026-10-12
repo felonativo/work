@@ -85,7 +85,7 @@
           email: email,
           lang: lang,
           page: location.pathname,
-          website: form.querySelector('.nl-hp').value
+          hp: form.querySelector('.nl-hp').value
         })
       }).then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
         .then(function (res) {
