@@ -9,12 +9,24 @@
  * 3. Sends it to Brevo: double opt-in if a template id is configured,
  *    otherwise straight onto the list.
  *
- * Answers JSON: {"ok":true,"mode":"doi"|"plain"|"pending"} or {"ok":false,"error":"invalid"|"server"}.
+ * Two ways in:
+ *  - app.js posts JSON and gets JSON back: {"ok":true,"mode":…} or {"ok":false,"error":…}
+ *  - a plain HTML form post (no JavaScript) gets redirected: success → /newsletter/gracias/,
+ *    bad email → /newsletter/?nl=invalido
  */
-header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
+$IS_FORM = !empty($_POST);
+
 function out(int $code, array $body): void {
+    global $IS_FORM;
+    if ($IS_FORM) {
+        $to = !empty($body['ok']) ? '/newsletter/gracias/'
+            : (($body['error'] ?? '') === 'invalid' ? '/newsletter/?nl=invalido' : '/newsletter/gracias/');
+        header('Location: ' . $to, true, 303);
+        exit;
+    }
+    header('Content-Type: application/json; charset=utf-8');
     http_response_code($code);
     echo json_encode($body);
     exit;
@@ -22,7 +34,8 @@ function out(int $code, array $body): void {
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') out(405, ['ok' => false, 'error' => 'method']);
 
-$data = json_decode((string) file_get_contents('php://input', false, null, 0, 2048), true);
+$data = $IS_FORM ? $_POST
+      : json_decode((string) file_get_contents('php://input', false, null, 0, 2048), true);
 if (!is_array($data)) out(400, ['ok' => false, 'error' => 'invalid']);
 
 // Honeypot: real people never fill this hidden field. Pretend success to bots,

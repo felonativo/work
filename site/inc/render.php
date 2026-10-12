@@ -69,43 +69,57 @@ function cabin_svg(): string {
 SVG;
 }
 
+/** Cache-buster: changes whenever the file changes, so browsers never keep an old copy. */
+function asset_v(string $file): string {
+    return (string) (@filemtime(__DIR__ . '/../assets/' . $file) ?: '1');
+}
+
 /** Bilingual placeholder attributes (swapped by app.js). */
 function ph(array $pair): string {
     return ' placeholder="' . e($pair['es']) . '" data-ph-es="' . e($pair['es']) . '" data-ph-en="' . e($pair['en']) . '"';
 }
 
-/** The signup form. Same markup on every page; app.js submits it to api/subscribe.php. */
-function newsletter_form(array $str, string $grantUrl): string {
+/**
+ * The signup form. Works without JavaScript too: it posts straight to
+ * api/subscribe.php, which redirects to /newsletter/gracias/. With JavaScript,
+ * app.js submits it in the background and then goes to the same page.
+ */
+function newsletter_form(array $str, string $page, bool $showBad = false): string {
     ob_start(); ?>
-<form class="nl-form" data-nl novalidate>
+<form class="nl-form" data-nl action="/api/subscribe.php" method="post" novalidate>
   <div class="nl-row">
-    <input class="nl-input" type="email" name="email" required autocomplete="email"
-           inputmode="email" maxlength="254"<?= ph($str['news_email']) ?>
-           aria-label="<?= e($str['news_email']['es']) ?>">
+    <label class="nl-field">
+      <?= icon('mail') ?>
+      <input class="nl-input" type="email" name="email" required autocomplete="email"
+             inputmode="email" maxlength="254"<?= ph($str['news_email']) ?>
+             aria-label="<?= e($str['news_email']['es']) ?>">
+    </label>
     <button class="nl-btn" type="submit" data-track="newsletter:submit"
             data-es="<?= e($str['news_button']['es']) ?>" data-en="<?= e($str['news_button']['en']) ?>"
             data-sending-es="<?= e($str['news_sending']['es']) ?>" data-sending-en="<?= e($str['news_sending']['en']) ?>"><?= e($str['news_button']['es']) ?></button>
   </div>
-  <input class="nl-hp" type="text" name="nl_hp_x9" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore aria-hidden="true">
-  <p class="nl-msg" role="status" aria-live="polite" hidden
-     data-ok-doi-es="<?= e($str['news_ok']['es']) ?>" data-ok-doi-en="<?= e($str['news_ok']['en']) ?>"
-     data-ok-es="<?= e($str['news_ok_plain']['es']) ?>" data-ok-en="<?= e($str['news_ok_plain']['en']) ?>"
+  <input type="hidden" name="lang" value="es">
+  <input type="hidden" name="page" value="<?= e($page) ?>">
+  <!-- anti-spam trap: hidden inline so it stays hidden even if the stylesheet is stale -->
+  <input class="nl-hp" type="text" name="hp" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore
+         aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+  <p class="nl-msg<?= $showBad ? ' bad' : '' ?>" role="status" aria-live="polite"<?= $showBad ? ' data-shown="bad"' : ' hidden' ?>
      data-bad-es="<?= e($str['news_bad']['es']) ?>" data-bad-en="<?= e($str['news_bad']['en']) ?>"
-     data-err-es="<?= e($str['news_err']['es']) ?>" data-err-en="<?= e($str['news_err']['en']) ?>"></p>
-  <a class="nl-guide" hidden href="<?= e($grantUrl) ?>" target="_blank" rel="noopener" data-track="newsletter:grant"
-     data-es="<?= e($str['news_grant_btn']['es']) ?>" data-en="<?= e($str['news_grant_btn']['en']) ?>"><?= e($str['news_grant_btn']['es']) ?></a>
+     data-err-es="<?= e($str['news_err']['es']) ?>" data-err-en="<?= e($str['news_err']['en']) ?>"><?= $showBad ? e($str['news_bad']['es']) : '' ?></p>
 </form>
 <?php return ob_get_clean();
 }
 
 function render_page(array $cfg, array $str, string $variant): string {
-    $isNews   = ($variant === 'newsletter');
+    $isThanks = ($variant === 'gracias');
+    $isNews   = ($variant === 'newsletter' || $isThanks);
     $isCouple = ($variant === 'couple' || $isNews);   // the newsletter page wears the couple theme
     $subject  = $isCouple ? $cfg['couple'] : $cfg['people'][$variant];
     $video    = $isNews ? null : yt_latest_video($cfg);
 
-    $title = $isNews ? $str['news_meta_title']['es']
-           : ($isCouple ? $str['meta_title']['es'] : $subject['name'] . ' — ' . $subject['tagline']['es']);
+    $title = $isThanks ? $str['thanks_meta_title']['es']
+           : ($isNews ? $str['news_meta_title']['es']
+           : ($isCouple ? $str['meta_title']['es'] : $subject['name'] . ' — ' . $subject['tagline']['es']));
     $desc  = $isNews ? $str['news_meta_desc']['es'] : $str['meta_desc']['es'];
     $ogImg = $cfg['base_url'] . '/assets/img/og-' . ($isNews ? 'couple' : $variant) . '.jpg';
     $canon = $cfg['base_url'] . ($isNews ? '/newsletter/' : ($isCouple ? '/' : '/' . $variant . '/'));
@@ -136,7 +150,8 @@ function render_page(array $cfg, array $str, string $variant): string {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<?php if ($isThanks): ?><meta name="robots" content="noindex"><?php endif; ?>
+<link rel="stylesheet" href="/assets/style.css?v=<?= asset_v('style.css') ?>">
 </head>
 <body>
 
@@ -164,7 +179,10 @@ function render_page(array $cfg, array $str, string $variant): string {
       <?php endif; ?>
     </div>
 
-    <?php if ($isNews): ?>
+    <?php if ($isThanks): ?>
+      <h1 class="name nl-h1"><?= t($str['thanks_h1'], 'span') ?></h1>
+      <?= t($str['thanks_lead'], 'p', 'tagline nl-lead') ?>
+    <?php elseif ($isNews): ?>
       <h1 class="name nl-h1"><?= t($str['news_h1'], 'span') ?></h1>
       <?= t($str['news_lead'], 'p', 'tagline nl-lead') ?>
     <?php elseif ($isCouple): ?>
@@ -189,14 +207,25 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?php endif; ?>
   </header>
 
-  <?php if ($isNews): ?>
+  <?php if ($isThanks): ?>
+  <section class="block">
+    <div class="card news">
+      <span class="card-body">
+        <?= t($str['thanks_spam'], 'p', 'nl-thanks-note') ?>
+        <?= t($str['thanks_now'], 'p', 'nl-thanks-now') ?>
+        <a class="nl-guide" href="<?= e($cfg['grant_url']) ?>" target="_blank" rel="noopener" data-track="thanks:grant"
+           data-es="<?= e($str['news_grant_btn']['es']) ?>" data-en="<?= e($str['news_grant_btn']['en']) ?>"><?= e($str['news_grant_btn']['es']) ?></a>
+      </span>
+    </div>
+  </section>
+  <?php elseif ($isNews): ?>
   <section class="block">
     <?php if (isset($_GET['confirmado'])): ?>
       <div class="card news"><span class="card-body"><?= t($str['news_confirmed'], 'p', 'nl-confirmed') ?></span></div>
     <?php else: ?>
       <div class="card news">
         <span class="card-body">
-          <?= newsletter_form($str, $cfg['grant_url']) ?>
+          <?= newsletter_form($str, '/newsletter/', ($_GET['nl'] ?? '') === 'invalido') ?>
           <?= t($str['news_consent'], 'p', 'nl-consent') ?>
         </span>
       </div>
@@ -249,7 +278,7 @@ function render_page(array $cfg, array $str, string $variant): string {
       <span class="card-body">
         <?= t($str['news_title'], 'span', 'card-label nl-title') ?>
         <?= t($str['news_desc'], 'span', 'card-meta nl-desc') ?>
-        <?= newsletter_form($str, $cfg['grant_url']) ?>
+        <?= newsletter_form($str, $isCouple ? '/' : '/' . $variant . '/') ?>
         <?= t($str['news_consent'], 'p', 'nl-consent') ?>
       </span>
     </div>
@@ -332,7 +361,7 @@ function render_page(array $cfg, array $str, string $variant): string {
 
 </main>
 
-<script src="/assets/app.js" defer></script>
+<script src="/assets/app.js?v=<?= asset_v('app.js') ?>" defer></script>
 <?php if ($cfg['cf_analytics_token']): ?>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token":"<?= e($cfg['cf_analytics_token']) ?>"}'></script>

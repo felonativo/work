@@ -90,10 +90,7 @@
       }).then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
         .then(function (res) {
           if (res.j && res.j.ok) {
-            say(res.j.mode === 'doi' ? 'ok-doi' : 'ok');
-            form.querySelector('.nl-row').hidden = true;
-            var g = form.querySelector('.nl-guide');
-            if (g) g.hidden = false;
+            location.href = '/newsletter/gracias/';
           } else {
             say(res.s === 422 ? 'bad' : 'err');
             button.disabled = false;

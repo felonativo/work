@@ -625,3 +625,22 @@ a.avatar:hover { transform: translateY(-3px); }
 [data-theme="jungle"] .card.news .nl-input { background: #fff; border-color: #D9CCB5; }
 [data-theme="jungle"] .card.news .nl-msg.good { color: #2E6B4F; }
 [data-theme="jungle"] .card.news .nl-msg.bad  { color: #A02025; }
+
+/* Email field with the envelope inside it. */
+.nl-field { position: relative; flex: 1; min-width: 0; display: block; }
+.nl-field svg {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 19px;
+  height: 19px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+.nl-field .nl-input { width: 100%; padding-left: 42px; -webkit-appearance: none; appearance: none; box-shadow: none; }
+.nl-btn { -webkit-appearance: none; appearance: none; min-width: 92px; }
+
+/* Thank-you page */
+.nl-thanks-note { margin: 0 0 10px; font-size: 15px; line-height: 1.45; }
+.nl-thanks-now  { margin: 0; color: var(--muted); font-size: 14px; }
