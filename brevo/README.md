@@ -12,7 +12,8 @@ template's numeric ID (shown in the template list / in the URL).
 Subject lines to use:
 
 - Confirmation: `Confirma tu correo para recibir la guía`
-- Welcome: `Cómo vivir sin pagar renta en el Ártico (la convocatoria cierra el 15 de octubre)`
+- Welcome: `Tu guía: cómo vivir sin pagar renta en el Ártico (cierra el 15 de octubre)`
+- Welcome preview text is inside the HTML (hidden first line).
 
 Before sending anything:
 
