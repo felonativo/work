@@ -19,6 +19,10 @@ $lines = [
   'brevo_list_id'             => (string) ($cfg['newsletter']['brevo_list_id'] ?? 'MISSING'),
   'inc/secrets.php found'     => $sec === null ? 'NO' : 'yes',
   'API key filled in'         => $key === '' ? 'NO' : 'yes (' . strlen($key) . ' characters)',
+  'API key format'            => $key === '' ? '-' : (strpos($key, 'xkeysib-') === 0 ? 'looks like an API key (xkeysib-)'
+                                 : (strpos($key, 'xsmtpsib-') === 0 ? 'WRONG: this is an SMTP key, create an API key instead'
+                                 : 'UNEXPECTED: should start with xkeysib-')),
+  'key has spaces/newlines'   => preg_match('/\s/', $key) ? 'YES — remove them' : 'no',
   'curl available'            => function_exists('curl_init') ? 'yes' : 'NO',
   'cache/ writable'           => is_writable("$root/cache") ? 'yes' : 'NO',
   'new form code deployed'    => is_file("$root/newsletter/gracias/index.php") ? 'yes' : 'NO',
@@ -35,7 +39,7 @@ if (isset($_GET['brevo']) && $key !== '' && function_exists('curl_init')) {
     curl_close($ch);
     $j = json_decode($body, true);
     if ($code === 200)      $ans = 'OK — list "' . ($j['name'] ?? '?') . '" found';
-    elseif ($code === 401)  $ans = 'KEY REJECTED (401) — key wrong or copied with spaces';
+    elseif ($code === 401)  $ans = 'KEY REJECTED (401) — Brevo says: ' . ($j['message'] ?? substr($body, 0, 300));
     elseif ($code === 404)  $ans = 'LIST NOT FOUND (404) — check brevo_list_id';
     else                    $ans = "HTTP $code — " . substr($body, 0, 200);
     $lines['Brevo answer'] = $ans;}
