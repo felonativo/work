@@ -22,7 +22,7 @@ return [
   // Newsletter → Brevo. The API key itself lives in inc/secrets.php (not in git).
   // Everyone goes into ONE list; in Brevo, name that list "Faroe Islands".
   'newsletter' => [
-    'brevo_list_id'   => 0,   // Brevo → Contacts → Lists → the list's numeric ID
+    'brevo_list_id'   => 3,   // Brevo → Contacts → Lists → the list's numeric ID
     // Double opt-in: Brevo → Campaigns → Templates → create a "double opt-in"
     // template containing {{ params.DOIurl }}, then put its numeric ID here.
     // Leave 0 to add people straight to the list (single opt-in).
