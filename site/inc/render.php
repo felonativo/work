@@ -10,6 +10,19 @@ function t(array $pair, string $tag = 'span', string $class = ''): string {
          . e($pair['es']) . "</{$tag}>";
 }
 
+/** Bilingual href: Spanish server-side, JS swaps to English with the toggle. */
+function href(array $pair): string {
+    return 'href="' . e($pair['es']) . '" data-href-es="' . e($pair['es']) . '" data-href-en="' . e($pair['en']) . '"';
+}
+
+/** Small Faroese flag cross, the mark of the guide block. */
+function faroe_cross(): string {
+    return '<svg class="fcross" viewBox="0 0 22 16" aria-hidden="true">'
+         . '<rect width="22" height="16" rx="2.5" fill="#fff"/>'
+         . '<path d="M6 0h4v6h12v4H10v6H6v-6H0V6h6z" fill="#005EB8"/>'
+         . '<path d="M7 0h2v7h13v2H9v7H7V9H0V7h7z" fill="#EF303E"/></svg>';
+}
+
 function icon(string $name): string {
     $paths = [
         'instagram' => '<rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/>',
@@ -181,6 +194,38 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?php endif; ?>
   </section>
 
+  <!-- 1b. Faroe Islands guide (couple page) -->
+  <?php $gd = $cfg['links']['guides'];
+  if ($gd['enabled'] && in_array($variant, $gd['pages'], true)): ?>
+  <section class="block">
+    <?= t($str['section_guide'], 'h2', 'sec') ?>
+    <div class="card guide">
+      <a class="guide-head" <?= href($gd['url']) ?> target="_blank" rel="noopener" data-track="guide">
+        <?= faroe_cross() ?>
+        <span class="card-body">
+          <?= t($gd['label'], 'span', 'card-label') ?>
+          <span class="card-meta"><?= e($gd['note']['es']) ?></span>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <ul class="topics">
+        <?php foreach ($gd['topics'] as $i => $tp): ?>
+          <li>
+            <a <?= href($tp['url']) ?> target="_blank" rel="noopener" data-track="guide:topic<?= $i + 1 ?>">
+              <span class="tnum"><?= $i + 1 ?></span>
+              <span class="tbody">
+                <?= t($tp['title'], 'span', 'ttitle') ?>
+                <?= t($tp['desc'], 'span', 'tdesc') ?>
+              </span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  </section>
+  <?php endif; ?>
+
   <!-- 2. Venezuela -->
   <?php $vz = $cfg['links']['venezuela']; if ($vz['enabled']): ?>
   <section class="block">
@@ -212,7 +257,7 @@ function render_page(array $cfg, array $str, string $variant): string {
 
   <!-- 4-5. Guides + gear, off until they exist -->
   <?php
-  $more = array_filter([$cfg['links']['guides'], $cfg['links']['gear']], fn($l) => $l['enabled']);
+  $more = array_filter([$cfg['links']['gear']], fn($l) => $l['enabled']);
   if ($more): ?>
   <section class="block">
     <?= t($str['section_more'], 'h2', 'sec') ?>

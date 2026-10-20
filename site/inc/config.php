@@ -31,8 +31,8 @@ return [
         'en' => 'Exploring the world between two cultures',
       ],
       'socials' => [
-        'instagram' => 'https://www.instagram.com/feloferoe/',
-        'tiktok'    => 'https://www.tiktok.com/@feloferoe',
+        'instagram' => 'https://www.instagram.com/felofaroe/',
+        'tiktok'    => 'https://www.tiktok.com/@felofaroe',
         'youtube'   => 'https://www.youtube.com/@SannaFelo',
       ],
     ],
@@ -89,12 +89,41 @@ return [
         'en' => 'Panama · coral restoration',
       ],
     ],
+    // Our Faroe Islands guide — couple page only, right under the video.
+    // Every link has a Spanish and an English target; the ES|EN switch swaps them.
     'guides' => [
-      'enabled' => false, // no existe todavía
-      'url'     => '',
+      'enabled' => true,
+      'pages'   => ['couple'],
+      'url'     => [
+        'es' => 'https://thefaroeislandsguide.com/es/',
+        'en' => 'https://thefaroeislandsguide.com/en/',
+      ],
       'label'   => [
-        'es' => 'Guía de las Islas Feroe',
-        'en' => 'Faroe Islands guide',
+        'es' => 'Nuestra guía de las Islas Feroe',
+        'en' => 'Our Faroe Islands guide',
+      ],
+      'note'    => ['es' => 'thefaroeislandsguide.com', 'en' => 'thefaroeislandsguide.com'],
+      'topics'  => [
+        [
+          'title' => ['es' => 'Islas Feroe', 'en' => 'Faroe Islands'],
+          'desc'  => ['es' => 'Qué son, dónde están y lo básico', 'en' => 'What they are, where, the basics'],
+          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/islas-feroe/',
+                      'en' => 'https://thefaroeislandsguide.com/en/faroe-islands/'],
+        ],
+        [
+          'title' => ['es' => 'Qué hacer', 'en' => 'Things to do'],
+          'desc'  => ['es' => 'Senderismo, barcos, pueblos y miradores', 'en' => 'Hikes, boat trips, villages, viewpoints'],
+          // TODO: Spanish page URL not confirmed yet — falls back to the Spanish home.
+          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/',
+                      'en' => 'https://thefaroeislandsguide.com/en/things-to-do/'],
+        ],
+        [
+          'title' => ['es' => 'Planifica tu viaje', 'en' => 'Plan your trip'],
+          'desc'  => ['es' => 'Entrada, presupuesto, transporte y qué llevar', 'en' => 'Entry, budget, transport, what to pack'],
+          // TODO: Spanish page URL not confirmed yet — falls back to the Spanish home.
+          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/',
+                      'en' => 'https://thefaroeislandsguide.com/en/plan-your-trip/'],
+        ],
       ],
     ],
     'gear' => [

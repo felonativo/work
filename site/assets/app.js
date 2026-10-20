@@ -32,6 +32,10 @@
       var v = nodes[i].getAttribute('data-' + lang);
       if (v !== null) nodes[i].textContent = v;
     }
+    var links = document.querySelectorAll('[data-href-es][data-href-en]');
+    for (var j = 0; j < links.length; j++) {
+      links[j].setAttribute('href', links[j].getAttribute('data-href-' + lang));
+    }
     if (btn) {
       btn.dataset.lang = lang;
       btn.setAttribute('aria-checked', lang === 'en' ? 'true' : 'false');

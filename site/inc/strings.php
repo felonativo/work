@@ -7,6 +7,7 @@
 
 return [
   'section_video'  => ['es' => 'Último video',        'en' => 'Latest video'],
+  'section_guide'  => ['es' => 'Nuestra guía',        'en' => 'Our guide'],
   'section_help'   => ['es' => 'Por Venezuela',       'en' => 'For Venezuela'],
   'section_stay'   => ['es' => 'Quédate con nosotros','en' => 'Stay with us'],
   'section_more'   => ['es' => 'Más',                 'en' => 'More'],
