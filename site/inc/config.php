@@ -89,11 +89,13 @@ return [
         'en' => 'Panama · coral restoration',
       ],
     ],
-    // Our Faroe Islands guide — couple page only, right under the video.
+    // Our Faroe Islands guide, right under the video on every page.
+    // Couple page: header link + topic table. /felo and /sanna: header link only.
     // Every link has a Spanish and an English target; the ES|EN switch swaps them.
     'guides' => [
       'enabled' => true,
-      'pages'   => ['couple'],
+      'pages'   => ['couple', 'felo', 'sanna'],
+      'topics_on' => ['couple'],
       'url'     => [
         'es' => 'https://thefaroeislandsguide.com/es/',
         'en' => 'https://thefaroeislandsguide.com/en/',

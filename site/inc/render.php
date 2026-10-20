@@ -194,12 +194,13 @@ function render_page(array $cfg, array $str, string $variant): string {
     <?php endif; ?>
   </section>
 
-  <!-- 1b. Faroe Islands guide (couple page) -->
+  <!-- 1b. Faroe Islands guide (topic table on the couple page only) -->
   <?php $gd = $cfg['links']['guides'];
   if ($gd['enabled'] && in_array($variant, $gd['pages'], true)): ?>
   <section class="block">
     <?= t($str['section_guide'], 'h2', 'sec') ?>
-    <div class="card guide">
+    <?php $withTopics = in_array($variant, $gd['topics_on'], true); ?>
+    <div class="card guide<?= $withTopics ? '' : ' solo' ?>">
       <a class="guide-head" <?= href($gd['url']) ?> target="_blank" rel="noopener" data-track="guide">
         <?= faroe_cross() ?>
         <span class="card-body">
@@ -208,6 +209,7 @@ function render_page(array $cfg, array $str, string $variant): string {
         </span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
+      <?php if ($withTopics): ?>
       <ul class="topics">
         <?php foreach ($gd['topics'] as $i => $tp): ?>
           <li>
@@ -222,6 +224,7 @@ function render_page(array $cfg, array $str, string $variant): string {
           </li>
         <?php endforeach; ?>
       </ul>
+      <?php endif; ?>
     </div>
   </section>
   <?php endif; ?>
