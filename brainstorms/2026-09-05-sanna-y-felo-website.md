@@ -291,7 +291,7 @@ References supplied: Linktree's own page (lime green), Ziwe (pink), thekelseyros
 ### Q32 — Felo's handle is now felofaroe; Faroe Islands guide added to the couple page
 - Felo's Instagram and TikTok handles changed to **@felofaroe** (email unchanged: feloferoe@gmail.com). Site config updated.
 - New block on the **root page only**, right under the video: "Nuestra guía" — a header link to thefaroeislandsguide.com plus a three-row topic table (Islas Feroe / Qué hacer / Planifica tu viaje). Every link swaps between /es/ and /en/ with the language switch.
-- Spanish URLs: `/es/islas-feroe/` confirmed via search. **The Spanish URLs for "things-to-do" and "plan-your-trip" could not be found** (site blocked from this environment, not in search results). Those two fall back to `/es/` until the user supplies them. Marked TODO in config.
+- Spanish URLs: `/es/islas-feroe/` confirmed via search. Spanish URLs for the other two supplied by the user: `/es/que-ver-y-hacer/` and `/es/planifica-tu-viaje/`.
 
 ### Q31 — Two themes: root stays jungle, personal pages go sand
 - User sent a marked-up mockup and a new banner. Confirmed before building this time.

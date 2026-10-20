@@ -113,15 +113,13 @@ return [
         [
           'title' => ['es' => 'Qué hacer', 'en' => 'Things to do'],
           'desc'  => ['es' => 'Senderismo, barcos, pueblos y miradores', 'en' => 'Hikes, boat trips, villages, viewpoints'],
-          // TODO: Spanish page URL not confirmed yet — falls back to the Spanish home.
-          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/',
+          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/que-ver-y-hacer/',
                       'en' => 'https://thefaroeislandsguide.com/en/things-to-do/'],
         ],
         [
           'title' => ['es' => 'Planifica tu viaje', 'en' => 'Plan your trip'],
           'desc'  => ['es' => 'Entrada, presupuesto, transporte y qué llevar', 'en' => 'Entry, budget, transport, what to pack'],
-          // TODO: Spanish page URL not confirmed yet — falls back to the Spanish home.
-          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/',
+          'url'   => ['es' => 'https://thefaroeislandsguide.com/es/planifica-tu-viaje/',
                       'en' => 'https://thefaroeislandsguide.com/en/plan-your-trip/'],
         ],
       ],
